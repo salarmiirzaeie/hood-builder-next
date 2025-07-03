@@ -28,7 +28,6 @@ const Header = () => {
                 src="/logos/logo-main-3.webp" // Placeholder image
                 alt="Hoodbuilder Logo"
               />
-              =
             </a>
           </div>
 
@@ -86,7 +85,7 @@ const Header = () => {
                   href="#"
                   className="text-gray-700 hover:text-indigo-600 px-2 py-1 text-sm font-medium rounded-md transition duration-300"
                 >
-                  HOODBUILDER'S PROJECTS
+                  HOODBUILDER&#39;S PROJECTS
                 </a>
                 <a
                   href="#"
@@ -154,7 +153,7 @@ const Header = () => {
             className="block text-gray-700 hover:bg-gray-100 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-300"
             onClick={toggleMobileMenu}
           >
-            HOODBUILDER'S PROJECTS
+            HOODBUILDER&#39;S PROJECTS
           </a>
           <a
             href="#"

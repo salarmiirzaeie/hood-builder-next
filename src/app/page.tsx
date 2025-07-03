@@ -1,4 +1,3 @@
-import Image from "next/image";
 import RestaurantServicesHero from "./components/home/RestaurantServicesHero";
 import InfoSection from "./components/home/Info";
 import Clients from "./components/home/Clients";
