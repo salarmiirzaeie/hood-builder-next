@@ -12,7 +12,7 @@ const RestaurantInfoSection: React.FC = () => {
           <p className="text-base md:text-lg text-gray-700 leading-relaxed">
             Not only can we provide you with restaurant renovation, repair, and design services, but we can maintain a
             safe atmosphere for years to come. We can ensure that restaurant layout design adheres to all safety and
-            fire codes, but we don't stop there. When it comes to your kitchen, we offer the very best HVAC hood
+            fire codes, but we don&apos;t stop there. When it comes to your kitchen, we offer the very best HVAC hood
             services to keep the risk of dangerous fire to an absolute minimum.
           </p>
         </div>
@@ -23,8 +23,8 @@ const RestaurantInfoSection: React.FC = () => {
           <p className="text-base text-gray-700 md:text-lg leading-relaxed">
             A large aspect of our Colorado general contracting business comes from our HVAC customers. When running a
             restaurant or hospitality business, you want to ensure that your atmosphere always remains cozy. After all,
-            customers won't visit a restaurant where the air is stuffy or where impurities tend to hang in the air.
-            Likewise, when your <span className="font-bold text-primary">HVAC system</span> isn't working properly,
+            customers won&apos;t visit a restaurant where the air is stuffy or where impurities tend to hang in the air.
+            Likewise, when your <span className="font-bold text-primary">HVAC system</span> isn&apos;t working properly,
             staff morale can fall and that can spell bad news for any business.
           </p>
         </div>
@@ -49,8 +49,8 @@ const RestaurantInfoSection: React.FC = () => {
             commercial kitchen systems for restaurants, hotels, and any other food service facilities across Colorado.
           </p>
           <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-            Whether you're opening a new restaurant or upgrading outdated equipment, we guarantee fast, precise, and
-            fully customized solutions wherever you are in the following cities and nearby areas:
+            Whether you&apos;re opening a new restaurant or upgrading outdated equipment, we guarantee fast, precise,
+            and fully customized solutions wherever you are in the following cities and nearby areas:
           </p>
           <div className="flex flex-wrap gap-x-6 text-gray-700 gap-y-2 text-md md:text-lg">
             <span>Arvada</span>
