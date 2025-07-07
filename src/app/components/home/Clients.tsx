@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { toast } from "react-toastify";
 
 // Main App component
 const Clients = () => {
@@ -15,6 +16,7 @@ const Clients = () => {
     { name: "Carrefour", src: "/logos/logo-mcdonalds.webp", width: 96, height: 65 },
     { name: "Subway", src: "/logos/logo-nissan.webp", width: 94, height: 80 },
   ];
+  const notify = () => toast("Coming Soon!");
 
   return (
     <div className=" flex flex-col border-b border-gray-200 items-center justify-center bg-white font-sans p-4">
@@ -38,7 +40,10 @@ const Clients = () => {
 
       {/* Button Section */}
       <div className="mt-8 mb-16">
-        <button className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+        <button
+          onClick={notify}
+          className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200"
+        >
           VIEW ALL CLIENTS
         </button>
       </div>

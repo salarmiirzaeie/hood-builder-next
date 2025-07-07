@@ -2,9 +2,12 @@
 
 import Image from "next/image";
 import React from "react";
+import { toast } from "react-toastify";
 
 // Main App component
 const ServicesBanner = () => {
+  const notify = () => toast("Coming Soon!");
+
   return (
     <div
       className="relative w-full h-[400px]  bg-cover bg-center flex items-center justify-center text-white p-4"
@@ -29,7 +32,10 @@ const ServicesBanner = () => {
         </p>
 
         {/* Button */}
-        <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75 transition-colors duration-200">
+        <button
+          onClick={notify}
+          className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75 transition-colors duration-200"
+        >
           VIEW OUR SERVICES
         </button>
       </div>

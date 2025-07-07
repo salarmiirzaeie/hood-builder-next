@@ -2,8 +2,11 @@
 "use client";
 
 import React from "react";
+import { toast } from "react-toastify";
 
 const FreeQuoteSection: React.FC = () => {
+  const notify = () => toast("Coming Soon!");
+
   return (
     <section className="bg-primary text-white py-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto px-4">
@@ -43,6 +46,7 @@ const FreeQuoteSection: React.FC = () => {
               Get Your Restaurant Constructed and Designed by Experts
             </h3>
             <button
+              onClick={notify}
               className="bg-white self-center  text-blue-800 font-bold py-4 px-10 rounded-full text-lg uppercase
                                hover:bg-gray-200 transition-colors duration-300 shadow-lg"
             >

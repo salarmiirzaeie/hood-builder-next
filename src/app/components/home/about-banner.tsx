@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { toast } from "react-toastify";
 
 const AboutBanner = () => {
+  const notify = () => toast("Coming Soon!");
+
   return (
     <section className="bg-background-50 relative text-gray-800 pb-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto  px-4 ">
@@ -45,7 +48,10 @@ const AboutBanner = () => {
           </div>
         </div>
         <div className="mt-8 flex justify-center">
-          <button className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+          <button
+            onClick={notify}
+            className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200"
+          >
             About Hoot Builder
           </button>
         </div>

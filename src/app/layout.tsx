@@ -3,6 +3,8 @@ import { Open_Sans } from "next/font/google"; // Changed from Geist and Geist_Mo
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Configure Open Sans
 const openSans = Open_Sans({
@@ -35,6 +37,8 @@ export default function RootLayout({
       <body className={`${openSans.variable} antialiased`}>
         <Header />
         {children}
+        <ToastContainer />
+
         <Footer />
       </body>
     </html>

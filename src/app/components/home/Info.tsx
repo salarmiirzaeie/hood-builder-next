@@ -1,7 +1,10 @@
 "use client";
 import React from "react";
+import { toast } from "react-toastify";
 
 const InfoSection = () => {
+  const notify = () => toast("Coming Soon!");
+
   return (
     <section className="flex  flex-col items-center border-b border-gray-200 justify-center bg-white py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-4xl mx-auto    text-center">
@@ -21,7 +24,10 @@ const InfoSection = () => {
         </p>
 
         {/* Call to Action Button */}
-        <button className="bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+        <button
+          onClick={notify}
+          className="bg-primary hover:bg-secondary text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+        >
           GET A FREE QUOTE
         </button>
       </div>
