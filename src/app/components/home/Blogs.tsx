@@ -95,11 +95,11 @@ const BlogPostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
       {/* Content Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent flex flex-col justify-end p-4 text-white">
         <p className="text-sm text-orange-400 mb-1">{post.category}</p>
-        <h3 className="text-xl font-bold mb-2 leading-tight">{post.title}</h3>
+        <h3 className="text-sm font-bold mb-2 leading-tight">{post.title}</h3>
         <p className="text-xs text-gray-300 mb-2">
           {post.author} | {post.date} | {post.readTime}
         </p>
-        <p className="text-sm text-gray-400">{post.description}</p>
+        <p className="text-xs text-gray-400">{post.description}</p>
       </div>
     </div>
   );
@@ -109,7 +109,6 @@ const BlogPostsSection: React.FC = () => {
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-900 font-inter">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white text-center mb-10">Our Latest Insights</h2>
         {/* Adjusted grid for 4 columns across all sizes */}
         <div className="grid grid-cols-1 px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
           {blogPosts.map((post) => (

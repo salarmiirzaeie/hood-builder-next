@@ -1,4 +1,6 @@
 // components/FireSuppressionSection.tsx
+"use client";
+
 import React from "react";
 
 const FireSuppressionSection: React.FC = () => {

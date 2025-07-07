@@ -24,7 +24,7 @@ const originalCarouselItems: CarouselItem[] = [
   },
   {
     id: 2,
-    image: "/images/img-slider-fire-protection.webp",
+    image: "/images/img-slider-hoods.webp",
     icon: "/icons/icon-white-fireprotection.webp",
     title: "RESTAURANT SERVICES",
     hasButton: true,
@@ -39,14 +39,14 @@ const originalCarouselItems: CarouselItem[] = [
   },
   {
     id: 4,
-    image: "/images/img-slider-fire-protection.webp",
+    image: "/images/img-slider-air-balancing.webp",
     icon: "/icons/icon-white-fireprotection.webp",
     title: "HVAC",
     hasButton: false,
   },
   {
     id: 5,
-    image: "/images/img-slider-fire-protection.webp",
+    image: "/images/img-slider-restaurants.webp",
     icon: "/icons/icon-white-fireprotection.webp",
     title: "HVAC SYSTEMS (FIFTH ITEM)",
     hasButton: false,
@@ -60,16 +60,9 @@ const originalCarouselItems: CarouselItem[] = [
   },
   {
     id: 7,
-    image: "/images/img-slider-fire-protection.webp",
+    image: "/images/img-slider-restaurants.webp",
     icon: "/icons/icon-white-fireprotection.webp",
     title: "FIRE SUPPRESSION (SEVENTH ITEM)",
-    hasButton: false,
-  },
-  {
-    id: 8,
-    image: "/images/img-article-general-contracting.webp",
-    icon: "/icons/icon-white-fireprotection.webp",
-    title: "PROJECT MANAGEMENT (EIGHTH ITEM)",
     hasButton: false,
   },
 ];
@@ -88,11 +81,13 @@ const ImageSlider: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [loopedCarouselItems, setLoopedCarouselItems] = useState<CarouselItem[]>([]);
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
+  const [visibleItemsCount, setVisibleItemsCount] = useState(1); // Default to 1 for mobile
 
   useEffect(() => {
     setLoopedCarouselItems(getLoopedItems(originalCarouselItems));
   }, []);
 
+  // Effect to initialize scroll position
   useEffect(() => {
     if (carouselRef.current && loopedCarouselItems.length > 0) {
       const itemElement = carouselRef.current.children[0] as HTMLElement;
@@ -103,6 +98,36 @@ const ImageSlider: React.FC = () => {
     }
   }, [loopedCarouselItems]);
 
+  // Effect to determine visible items based on screen size
+  useEffect(() => {
+    const calculateVisibleItems = () => {
+      if (carouselRef.current) {
+        const carouselWidth = carouselRef.current.offsetWidth;
+        const itemElement = carouselRef.current.children[DUPLICATION_COUNT] as HTMLElement; // Get a real item
+        if (itemElement) {
+          const itemWidth = itemElement.offsetWidth;
+          // Calculate how many items fit in the current carousel width
+          // Use Math.round to handle potential fractional widths from browser rendering
+          setVisibleItemsCount(Math.round(carouselWidth / itemWidth));
+        } else {
+          // Fallback if itemElement is not found, e.g., during initial render
+          setVisibleItemsCount(1);
+        }
+      }
+    };
+
+    // Initial calculation
+    calculateVisibleItems();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", calculateVisibleItems);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener("resize", calculateVisibleItems);
+    };
+  }, [loopedCarouselItems]); // Re-run if looped items change, though not strictly necessary for this logic alone
+
   const scrollToPosition = useCallback(
     (targetScrollLeft: number) => {
       if (carouselRef.current && !isScrolling) {
@@ -112,6 +137,8 @@ const ImageSlider: React.FC = () => {
           behavior: "smooth",
         });
 
+        // Set a timeout to clear isScrolling after the scroll animation
+        // 600ms is a reasonable duration, adjust if your smooth scroll is faster/slower
         setTimeout(() => {
           setIsScrolling(false);
         }, 600);
@@ -123,8 +150,10 @@ const ImageSlider: React.FC = () => {
   const goToPrev = () => {
     if (carouselRef.current && !isScrolling) {
       const currentScrollLeft = carouselRef.current.scrollLeft;
+      // Get the width of a single item
       const itemWidth = (carouselRef.current.children[0] as HTMLElement)?.offsetWidth || 0;
-      const scrollStep = Math.floor(VISIBLE_ITEMS_DESKTOP / 2); // Still scroll by 2 items for consistency
+      // Scroll by one visible item
+      const scrollStep = 1;
 
       const targetScrollLeft = currentScrollLeft - scrollStep * itemWidth;
       scrollToPosition(targetScrollLeft);
@@ -134,8 +163,10 @@ const ImageSlider: React.FC = () => {
   const goToNext = () => {
     if (carouselRef.current && !isScrolling) {
       const currentScrollLeft = carouselRef.current.scrollLeft;
+      // Get the width of a single item
       const itemWidth = (carouselRef.current.children[0] as HTMLElement)?.offsetWidth || 0;
-      const scrollStep = Math.floor(VISIBLE_ITEMS_DESKTOP / 2); // Still scroll by 2 items for consistency
+      // Scroll by one visible item
+      const scrollStep = 1;
 
       const targetScrollLeft = currentScrollLeft + scrollStep * itemWidth;
       scrollToPosition(targetScrollLeft);

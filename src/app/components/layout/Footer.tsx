@@ -366,7 +366,7 @@ const Footer = () => {
             <Image
               src="/logos/logo-footer-copyright.webp"
               height={66}
-              width={248}
+              width={208}
               alt="EPA Logo"
               className="h-12 rounded-md my-1"
             />

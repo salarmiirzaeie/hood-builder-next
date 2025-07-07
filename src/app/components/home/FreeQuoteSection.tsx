@@ -1,4 +1,6 @@
 // components/FreeQuoteSection.tsx
+"use client";
+
 import React from "react";
 
 const FreeQuoteSection: React.FC = () => {
