@@ -15,18 +15,19 @@ interface CarouselItem {
 const originalItems: CarouselItem[] = [
   {
     id: 1,
-    image: "/images/img-slider-fire-protection.webp",
-    icon: "/icons/icon-white-fireprotection.webp",
-    title: "FIRE PROTECTION",
-    hasButton: false,
-  },
-  {
-    id: 2,
     image: "/images/img-slider-air-balancing.webp",
     icon: "/icons/icon-white-wind.webp",
     title: "AIR BALANCING",
     hasButton: false,
   },
+  {
+    id: 2,
+    image: "/images/img-slider-fire-protection.webp",
+    icon: "/icons/icon-white-fireprotection.webp",
+    title: "FIRE PROTECTION",
+    hasButton: false,
+  },
+
   {
     id: 3,
     image: "/images/img-slider-hoods.webp",
