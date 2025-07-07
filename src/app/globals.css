@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-open-sans: "Open Sans", sans-serif;
 }
 
 @theme inline {
