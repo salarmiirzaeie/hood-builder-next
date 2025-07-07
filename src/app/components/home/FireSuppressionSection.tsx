@@ -4,7 +4,7 @@ import React from "react";
 const FireSuppressionSection: React.FC = () => {
   return (
     <section className="bg-white text-gray-800 py-16 px-4 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto  px-4 ">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10 text-center">Fire Suppression Systems</h2>
 
         <div className="flex flex-col lg:flex-row gap-12">

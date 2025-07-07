@@ -4,9 +4,9 @@ import React from "react";
 const Description = () => {
   return (
     <div className=" bg-white font-sans p-4 flex justify-center">
-      <div className="w-full max-w-6xl mx-auto py-8 md:py-16 px-4">
+      <div className="w-full max-w-7xl mx-auto py-8 md:py-16 px-4">
         {/* Main Heading */}
-        <h1 className="text-2xl text-primary sm:text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
+        <h1 className="text-lg text-primary sm:text-md md:text-lg font-bold  mb-6 leading-tight">
           Are You Looking for the Best Restaurant Design Services?
         </h1>
 
@@ -27,7 +27,7 @@ const Description = () => {
         </p>
 
         {/* Subheading */}
-        <h2 className="text-xl text-primary sm:text-2xl md:text-3xl font-bold text-gray-800 mb-6 leading-tight">
+        <h2 className="text-lg text-primary sm:text-md md:text-lg font-bold  mb-6 leading-tight">
           Restaurant Interior Design
         </h2>
 

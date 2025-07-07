@@ -5,17 +5,16 @@ import React from "react";
 const ServicesBanner = () => {
   return (
     <div
-      className="relative w-full h-[500px]  bg-cover bg-center flex items-center justify-center text-white p-4"
+      className="relative w-full h-[400px]  bg-cover bg-center flex items-center justify-center text-white p-4"
       style={{ backgroundImage: "/images/img-bg-featured.webp" }} // Placeholder background image
     >
       <Image src={"/images/img-bg-featured.webp"} alt="Background Image" layout="fill" objectFit="cover" />
       {/* Overlay to darken the background image and improve text readability */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
 
       {/* Content Container */}
       <div className="relative z-10 text-center max-w-3xl mx-auto">
         {/* Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
           Plans, City Approvals, Full Construction and Remodeling Services
         </h1>
 

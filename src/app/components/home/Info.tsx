@@ -6,7 +6,7 @@ const InfoSection = () => {
     <section className="flex  flex-col items-center border-b border-gray-200 justify-center bg-white py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-4xl mx-auto    text-center">
         {/* Title */}
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-blue-700 mb-6">
+        <h2 className="text-md sm:text-md md:text-xl font-semibold text-primary mb-6">
           Full Mechanical and Fire Protection Installation and Services.
         </h2>
 

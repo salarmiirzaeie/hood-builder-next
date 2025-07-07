@@ -8,6 +8,7 @@ import ImageSlider from "./components/home/ImageSlider";
 import FreeQuoteSection from "./components/home/FreeQuoteSection";
 import FireSuppressionSection from "./components/home/FireSuppressionSection";
 import RestaurantInfoSection from "./components/home/RestaurantInfoSection";
+import AboutBanner from "./components/home/about-banner";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
       <Description />
       <ServicesBanner />
       <RestaurantInfoSection />
-      <ServicesBanner />
+      <AboutBanner />
 
       <FireSuppressionSection />
       <FreeQuoteSection />

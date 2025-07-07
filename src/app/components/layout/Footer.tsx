@@ -5,7 +5,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-gray-300 py-8 px-4 sm:px-6 lg:px-8 font-inter">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Top Section: Logo, Contact Info, Contact Us Button */}
         <div className="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-gray-700 mb-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center mb-4 md:mb-0">
@@ -13,14 +13,16 @@ const Footer = () => {
             <Image
               src="/logos/logo-footer.svg" // Placeholder for logo
               alt="HoodBuilder Logo"
-              className="h-10 mr-0 md:mr-4 mb-4 md:mb-0 rounded-md"
+              width={225}
+              height={70}
+              className=" mr-0 md:mr-4 mb-4 md:mb-0 rounded-md"
             />
             <p className="text-lg text-white">
               For Queries and Quote Contact Hood Builder today at{" "}
               <span className="text-secondary font-bold whitespace-nowrap">303-777-7720</span>
             </p>
           </div>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition duration-300 ease-in-out w-full md:w-auto">
+          <button className="bg-secondary outline hover:bg-primary text-white font-bold py-3 px-6 rounded-md shadow-lg transition duration-300 ease-in-out w-full md:w-auto">
             CONTACT US
           </button>
         </div>
@@ -361,7 +363,13 @@ const Footer = () => {
         <div className="flex flex-col items-center text-center pt-8 border-t border-gray-700">
           <div className="flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-4">
             {/* Placeholder for certification logos */}
-            <Image src="/logos/logo-footer-copyright.webp" alt="EPA Logo" className="h-12 rounded-md my-1" />
+            <Image
+              src="/logos/logo-footer-copyright.webp"
+              height={66}
+              width={248}
+              alt="EPA Logo"
+              className="h-12 rounded-md my-1"
+            />
           </div>
           <p className="text-gray-400 mb-2 text-sm sm:text-base">
             California Contractors License #: 943941 We are C-16 and C-20 Certified.

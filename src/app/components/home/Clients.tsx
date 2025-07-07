@@ -19,7 +19,7 @@ const Clients = () => {
   return (
     <div className=" flex flex-col border-b border-gray-200 items-center justify-center bg-white font-sans p-4">
       {/* Container for the logo grid */}
-      <div className="w-full  max-w-6xl mx-auto py-12 md:py-24">
+      <div className="w-full  max-w-7xl mx-auto py-12 md:py-24">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-8 justify-items-center items-center">
           {logos.map((logo, index) => (
             <div key={index} className="flex justify-center items-center p-2">
