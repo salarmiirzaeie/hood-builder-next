@@ -39,7 +39,7 @@ export default function RootLayout({
         strategy="afterInteractive"
       />
 
-      <body className={`${openSans.variable} antialiased`}>
+      <body className={`${openSans.variable} font-sans antialiased`}>
         <Header />
         {children}
         <ToastContainer />
