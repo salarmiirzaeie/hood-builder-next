@@ -9,10 +9,7 @@ const ServicesBanner = () => {
   const notify = () => toast("Coming Soon!");
 
   return (
-    <div
-      className="relative w-full h-[400px]  bg-cover bg-center flex items-center justify-center text-white p-4"
-      style={{ backgroundImage: "/images/img-bg-featured.webp" }} // Placeholder background image
-    >
+    <div className="relative w-full h-[400px]  bg-cover bg-center flex items-center justify-center text-white p-4">
       <Image src={"/images/img-bg-featured.webp"} alt="Background Image" layout="fill" objectFit="cover" />
       {/* Overlay to darken the background image and improve text readability */}
 
