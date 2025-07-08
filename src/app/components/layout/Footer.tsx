@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { MapPin } from "lucide-react"; // keeps the MapPin import
+import { MapPin } from "lucide-react";
 import Image from "next/image";
-import { toast } from "react-toastify"; // NEW: toast
+import { toast } from "react-toastify";
+import Link from "next/link";
 
 // Toast helper
 const notify = () => toast("Coming soon!");
@@ -25,14 +26,14 @@ const Footer = () => {
             <p className="text-lg text-white">
               For Queries and Quote Contact Hood Builder today at{" "}
               <span>
-                <a href="tel:+13037777720" className="text-secondary font-bold whitespace-nowrap">
+                <Link href="tel:+13037777720" className="text-secondary font-bold whitespace-nowrap">
                   303-777-7720
-                </a>
+                </Link>
               </span>
             </p>
           </div>
 
-          {/* CONTACT US button now shows toast */}
+          {/* CONTACT US button (already a button, correctly handled) */}
           <button
             onClick={notify}
             className="bg-secondary outline hover:bg-primary text-white font-bold py-3 px-6 rounded-md shadow-lg transition duration-300 ease-in-out w-full md:w-auto"
@@ -48,76 +49,58 @@ const Footer = () => {
             <h3 className="text-secondary font-bold text-lg mb-4">RESTAURANT SERVICES</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    notify();
-                  }}
-                  className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                {/* Changed to button */}
+                <button
+                  onClick={notify}
+                  className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                 >
                   Commercial Kitchen Cleaning
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    notify();
-                  }}
-                  className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                {/* Changed to button */}
+                <button
+                  onClick={notify}
+                  className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                 >
                   Commercial Kitchen &amp; Restaurant Construction
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    notify();
-                  }}
-                  className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                {/* Changed to button */}
+                <button
+                  onClick={notify}
+                  className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                 >
                   Commercial Kitchen Design &amp; Remodeling
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    notify();
-                  }}
-                  className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                {/* Changed to button */}
+                <button
+                  onClick={notify}
+                  className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                 >
                   Commercial Restaurant Equipment in Denver, Colorado
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    notify();
-                  }}
-                  className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                {/* Changed to button */}
+                <button
+                  onClick={notify}
+                  className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                 >
                   Restaurant Remodeling
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    notify();
-                  }}
-                  className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                {/* Changed to button */}
+                <button
+                  onClick={notify}
+                  className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                 >
                   Walk‑in Coolers and Freezers
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -133,15 +116,13 @@ const Footer = () => {
                 "Ventilation Services in Denver, Colorado",
               ].map((label) => (
                 <li key={label}>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      notify();
-                    }}
-                    className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                  {/* Changed to button */}
+                  <button
+                    onClick={notify}
+                    className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                   >
                     {label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -153,15 +134,13 @@ const Footer = () => {
             <ul className="space-y-2">
               {["Cleaning", "Fans", "Installation", "Make‑Up Air"].map((label) => (
                 <li key={label}>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      notify();
-                    }}
-                    className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                  {/* Changed to button */}
+                  <button
+                    onClick={notify}
+                    className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                   >
                     {label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -172,16 +151,13 @@ const Footer = () => {
             <h3 className="text-secondary font-bold text-lg mb-4">FOOD TRUCK DESIGN</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    notify();
-                  }}
-                  className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                {/* Changed to button */}
+                <button
+                  onClick={notify}
+                  className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                 >
                   Food Truck / Food Trailer
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -199,15 +175,13 @@ const Footer = () => {
                 "Structural Engineering",
               ].map((label) => (
                 <li key={label}>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      notify();
-                    }}
-                    className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                  {/* Changed to button */}
+                  <button
+                    onClick={notify}
+                    className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                   >
                     {label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -219,35 +193,32 @@ const Footer = () => {
             <ul className="space-y-2">
               {["Service", "Buckeye", "Ansul", "Pyrocem", "Amerex", "Range Guard"].map((label) => (
                 <li key={label}>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      notify();
-                    }}
-                    className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                  {/* Changed to button */}
+                  <button
+                    onClick={notify}
+                    className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                   >
                     {label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Other Links */}
+          {/* Other Links (assuming these *will* be actual pages) */}
           <div>
             <h3 className="text-secondary font-bold text-lg mb-4">OTHER LINKS</h3>
             <ul className="space-y-2">
               {["Home", "About Us", "Hood Builder Clients", "FAQ", "Blog", "Contact Us", "Sitemap"].map((label) => (
                 <li key={label}>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      notify();
-                    }}
-                    className="hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
+                  {/* These should ideally be Next.js <Link> components if they lead to actual pages */}
+                  {/* For now, keeping as buttons since they trigger 'Coming soon!' */}
+                  <button
+                    onClick={notify}
+                    className="text-left w-full hover:text-white transition duration-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75"
                   >
                     {label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

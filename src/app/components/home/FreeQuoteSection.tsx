@@ -1,6 +1,7 @@
 // components/FreeQuoteSection.tsx
 "use client";
 
+import Link from "next/link";
 import React from "react";
 import { toast } from "react-toastify";
 
@@ -34,9 +35,9 @@ const FreeQuoteSection: React.FC = () => {
             </p>
             <p className="text-amber-300 font-semibold mt-8">
               For a Full and Fast price Quote, Contact Hood Builder today at{" "}
-              <a href="tel:+13037777720" className="underline hover:no-underline">
+              <Link href="tel:+13037777720" className="underline hover:no-underline">
                 (303) 777 7720
-              </a>
+              </Link>
             </p>
           </div>
 

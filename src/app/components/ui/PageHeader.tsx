@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -37,9 +38,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, breadcrumbs, description
               {breadcrumbs.map((item, index) => (
                 <li key={index} className="flex items-center">
                   {item.href ? (
-                    <a href={item.href} className="hover:underline hover:text-blue-200 transition-colors duration-200">
+                    <Link
+                      href={item.href}
+                      className="hover:underline hover:text-blue-200 transition-colors duration-200"
+                    >
                       {item.label}
-                    </a>
+                    </Link>
                   ) : (
                     <span>{item.label}</span>
                   )}

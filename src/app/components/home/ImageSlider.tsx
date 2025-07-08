@@ -52,63 +52,90 @@ const originalItems: CarouselItem[] = [
 ];
 
 const VISIBLE_ITEMS_DESKTOP = 4;
-const DUPLICATION_COUNT = VISIBLE_ITEMS_DESKTOP;
+// We duplicate enough items to cover one full "loop" on either side for seamless transition.
+const DUPLICATION_COUNT = originalItems.length; // Better to duplicate the full array once
+// This simplifies the scroll logic for looping.
 
 const ImageSlider: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [itemWidth, setItemWidth] = useState(0); // State to store calculated item width
 
+  // Duplicate items for infinite scroll effect
   const loopedItems = useMemo(() => {
+    // Prepend the last 'DUPLICATION_COUNT' items and append the first 'DUPLICATION_COUNT' items
+    // This creates a seamless loop when scrolling
     const pre = originalItems.slice(-DUPLICATION_COUNT);
     const post = originalItems.slice(0, DUPLICATION_COUNT);
     return [...pre, ...originalItems, ...post];
-  }, []);
+  }, []); // Dependency on originalItems, but it's static
 
-  const getItemWidth = useCallback(() => {
-    // Corrected: Cast to HTMLElement to access offsetWidth
-    const firstChild = carouselRef.current?.children[0] as HTMLElement;
-    return firstChild?.offsetWidth || 0;
-  }, []);
+  // Calculate item width once on mount and on resize to avoid forced reflows during interactions
+  useEffect(() => {
+    const calculateWidth = () => {
+      if (carouselRef.current && carouselRef.current.children.length > 0) {
+        // Ensure the first child is an HTMLElement to access offsetWidth
+        const firstChild = carouselRef.current.children[0] as HTMLElement;
+        setItemWidth(firstChild?.offsetWidth || 0);
+      }
+    };
 
-  const scrollTo = useCallback((target: number) => {
-    if (!carouselRef.current) return;
-    setIsScrolling(true);
-    carouselRef.current.scrollTo({ left: target, behavior: "smooth" });
-    setTimeout(() => setIsScrolling(false), 700);
-  }, []);
+    calculateWidth(); // Initial calculation on mount
+    window.addEventListener("resize", calculateWidth); // Recalculate on window resize
+
+    // Clean up event listener
+    return () => window.removeEventListener("resize", calculateWidth);
+  }, []); // Empty dependency array means this runs once on mount and cleans up on unmount
+
+  // Effect to perform initial scroll jump after the component mounts and itemWidth is known
+  useEffect(() => {
+    if (carouselRef.current && itemWidth > 0) {
+      // Jump to the start of the "originalItems" section
+      carouselRef.current.scrollLeft = DUPLICATION_COUNT * itemWidth;
+    }
+  }, [itemWidth]); // Re-run when itemWidth is set (after initial render)
+
+  const scrollTo = useCallback(
+    (target: number) => {
+      if (!carouselRef.current || itemWidth === 0) return; // Ensure itemWidth is ready
+      setIsScrolling(true);
+      carouselRef.current.scrollTo({ left: target, behavior: "smooth" });
+      // Use a timeout to reset isScrolling after the scroll animation is likely complete.
+      // This duration might need fine-tuning based on your CSS scroll-behavior duration.
+      setTimeout(() => setIsScrolling(false), 700);
+    },
+    [itemWidth] // Depend on itemWidth to ensure it's available
+  );
 
   const goToPrev = useCallback(() => {
     const current = carouselRef.current?.scrollLeft || 0;
-    scrollTo(current - getItemWidth());
-  }, [getItemWidth, scrollTo]);
+    scrollTo(current - itemWidth); // Use the state-managed itemWidth
+  }, [itemWidth, scrollTo]);
 
   const goToNext = useCallback(() => {
     const current = carouselRef.current?.scrollLeft || 0;
-    scrollTo(current + getItemWidth());
-  }, [getItemWidth, scrollTo]);
+    scrollTo(current + itemWidth); // Use the state-managed itemWidth
+  }, [itemWidth, scrollTo]);
 
   const handleScroll = useCallback(() => {
-    if (!carouselRef.current || isScrolling) return;
+    if (!carouselRef.current || isScrolling || itemWidth === 0) return; // Prevent loop if itemWidth is zero
 
     const scrollLeft = carouselRef.current.scrollLeft;
-    const itemWidth = getItemWidth();
-    // Ensure itemWidth is not 0 before calculations to prevent division by zero or incorrect logic
-    if (itemWidth === 0) return;
-
     const totalOriginalWidth = originalItems.length * itemWidth;
     const preWidth = DUPLICATION_COUNT * itemWidth;
+    const postWidth = DUPLICATION_COUNT * itemWidth; // Equivalent to preWidth
 
-    // Check if scrolled into the 'pre' duplicated section
-    if (scrollLeft < preWidth && scrollLeft !== 0) {
-      // Instantly jump to the corresponding position in the 'post' section
-      carouselRef.current.scrollLeft = totalOriginalWidth + scrollLeft;
+    // Check if scrolled into the 'pre' duplicated section (towards the beginning)
+    if (scrollLeft < preWidth) {
+      // Instantly jump to the corresponding position in the 'original' section
+      carouselRef.current.scrollLeft = preWidth + totalOriginalWidth - (preWidth - scrollLeft);
     }
-    // Check if scrolled past the 'original' and into the 'post' duplicated section
+    // Check if scrolled past the 'original' and into the 'post' duplicated section (towards the end)
     else if (scrollLeft >= preWidth + totalOriginalWidth) {
       // Instantly jump back to the corresponding position in the 'original' section
-      carouselRef.current.scrollLeft = scrollLeft - totalOriginalWidth;
+      carouselRef.current.scrollLeft = preWidth + (scrollLeft - (preWidth + totalOriginalWidth));
     }
-  }, [isScrolling, getItemWidth]);
+  }, [isScrolling, itemWidth]); // Depend on itemWidth
 
   useEffect(() => {
     const el = carouselRef.current;
@@ -124,48 +151,58 @@ const ImageSlider: React.FC = () => {
         ref={carouselRef}
         className="flex overflow-x-scroll scroll-smooth snap-x snap-mandatory hide-scrollbar space-x-2"
       >
-        {loopedItems.map((item, i) => (
-          <div
-            // Removed itemRef as it's no longer strictly needed for width calculation.
-            // If you had other logic relying on it for a specific item, you'd re-add it.
-            key={`${item.id}-${i}`}
-            className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 snap-start relative group"
-            style={{ minWidth: `calc(100% / ${VISIBLE_ITEMS_DESKTOP})` }}
-          >
-            <div className="relative w-full h-96 overflow-hidden">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                sizes="(max-width: 768px) 100vw,
-                       (max-width: 1024px) 50vw,
-                       (max-width: 1280px) 33vw,
-                       25vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
-                priority={i === 0}
-              />
-              <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
-                {item.icon && (
-                  <Image
-                    src={item.icon}
-                    alt={`${item.title} icon`}
-                    width={50}
-                    height={50}
-                    className="mb-4 opacity-75 group-hover:opacity-100 transition-opacity duration-300"
-                  />
-                )}
-                <h3 className="text-xl md:text-2xl font-bold mb-2 uppercase leading-tight group-hover:text-amber-300 transition-colors duration-300">
-                  {item.title}
-                </h3>
-                {item.hasButton && (
-                  <button className="mt-4 px-6 py-2 border border-white text-white text-sm uppercase font-semibold rounded-full hover:bg-white hover:text-gray-800 transition-colors duration-300">
-                    {item.buttonText}
-                  </button>
-                )}
+        {loopedItems.map((item, i) => {
+          // Determine if the current item is one of the initial visible items
+          // This is critical for LCP prioritization.
+          // The actual visible items start after the `DUPLICATION_COUNT` prepended items.
+          // We prioritize the number of items that are expected to be visible on desktop.
+          const isPriorityImage = i >= DUPLICATION_COUNT && i < DUPLICATION_COUNT + VISIBLE_ITEMS_DESKTOP;
+
+          return (
+            <div
+              key={`${item.id}-${i}`} // Ensure unique keys for duplicated items
+              className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 snap-start relative group"
+              // minWidth calculation should be based on VISIBLE_ITEMS_DESKTOP
+              style={{ minWidth: `calc(100% / ${VISIBLE_ITEMS_DESKTOP})` }}
+            >
+              <div className="relative w-full h-96 overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  // The sizes prop is very important for Next.js Image responsiveness and LCP
+                  // Ensure these values accurately reflect your responsive breakpoints and how much space the image takes
+                  sizes="(max-width: 768px) 100vw,
+                         (max-width: 1024px) 50vw,
+                         (max-width: 1280px) 33vw,
+                         25vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
+                  priority={isPriorityImage} // Dynamically apply priority
+                />
+                <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
+                  {item.icon && (
+                    <Image
+                      src={item.icon}
+                      alt={`${item.title} icon`}
+                      width={50}
+                      height={50}
+                      // Icons are usually small and not LCP. No priority needed.
+                      className="mb-4 opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  )}
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 uppercase leading-tight group-hover:text-amber-300 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  {item.hasButton && (
+                    <button className="mt-4 px-6 py-2 border border-white text-white text-sm uppercase font-semibold rounded-full hover:bg-white hover:text-gray-800 transition-colors duration-300">
+                      {item.buttonText}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Navigation */}
