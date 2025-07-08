@@ -132,7 +132,7 @@ const ImageSlider: React.FC = () => {
                        (max-width: 1280px) 33vw,
                        25vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
-                priority={i >= DUPLICATION_COUNT && i < DUPLICATION_COUNT + VISIBLE_ITEMS_DESKTOP}
+                priority={item.id === 2}
               />
               <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
                 {item.icon && (

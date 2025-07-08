@@ -24,7 +24,11 @@ const Footer = () => {
             />
             <p className="text-lg text-white">
               For Queries and Quote Contact Hood Builder today at{" "}
-              <span className="text-secondary font-bold whitespace-nowrap">303-777-7720</span>
+              <span>
+                <a href="tel:+13037777720" className="text-secondary font-bold whitespace-nowrap">
+                  303-777-7720
+                </a>
+              </span>
             </p>
           </div>
 

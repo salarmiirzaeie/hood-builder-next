@@ -7,7 +7,7 @@ const AboutBanner = () => {
   const notify = () => toast("Coming Soon!");
 
   return (
-    <section className="bg-background-50 relative text-gray-800 pb-16 px-4 md:px-8 lg:px-16">
+    <section className="bg-[#eee] relative text-gray-800 pb-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto  px-4 ">
         {/* Centered top image */}
         <div className="flex justify-center mb-12">

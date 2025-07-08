@@ -30,7 +30,7 @@ const Header = () => {
           {/* Phone Number */}
           <div className="flex items-center text-gray-700 text-lg font-semibold">
             <Phone className="w-5 h-5 mr-2 text-gray-600" />
-            <a href="tel:+1-303-777-7720">(803) 777 7720</a>
+            <a href="tel:+13037777720">(303) 777 7720</a>
           </div>
         </div>
       </div>

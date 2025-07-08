@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Script from "next/script";
 
 // Configure Open Sans
 const openSans = Open_Sans({
@@ -19,11 +20,6 @@ export const metadata: Metadata = {
     "Restaurant Design, Repair and Construction | One-Step-Shop | Hood Builder | Boulder | Fort Collins | Denver,CO",
   description:
     "Hood Builder is your One-Step-Shop in Colorado, offering hood and HVAC installation, repair, cleaning, and maintenance services for restaurants. They also provide restaurant design and construction services. | Boulder | Fort Collins | Denver,CO",
-  robots: {
-    index: false,
-  },
-  // The 'googleBot' property is not part of the standard Metadata type.
-  // The 'robots' rules for 'userAgent: "*"' already apply to Googlebot.
 };
 
 export default function RootLayout({
@@ -34,6 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* Apply the Open Sans font variable to the body */}
+      <Script
+        src="https://cdn.callrail.com/companies/649937440/3df2f50517e0b811abc8/12/swap.js"
+        strategy="afterInteractive"
+      />
+
       <body className={`${openSans.variable} antialiased`}>
         <Header />
         {children}
