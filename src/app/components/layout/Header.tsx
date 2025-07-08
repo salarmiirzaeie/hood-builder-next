@@ -4,6 +4,7 @@ import { Phone, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { Link as LinkScroll } from "react-scroll";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,6 +17,7 @@ const Header = () => {
 
   const navItems = [
     // { label: "ALL SERVICES", href: "/services" },
+    { label: "HOME", href: "/" },
     { label: "ABOUT US", href: "/about-us" },
     { label: "CLIENTS", href: "/clients" },
     // { label: "HOODBUILDER'S PROJECTS", href: "/hoodbuilders-featured-projects" },
@@ -81,12 +83,16 @@ const Header = () => {
 
             {/* Get Quote Button */}
             <div className="flex-shrink-0 ml-4">
-              <button
-                onClick={notify}
-                className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-sm"
+              <LinkScroll
+                to="contactFormSection" // Matches the name of the Element in the Footer
+                spy={true}
+                smooth={true}
+                duration={500}
               >
-                GET QUOTE
-              </button>
+                <button className="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-sm">
+                  GET QUOTE
+                </button>
+              </LinkScroll>
             </div>
           </div>
         </div>
@@ -111,12 +117,16 @@ const Header = () => {
           ))}
         </div>
         <div className="px-4 py-2">
-          <button
-            onClick={notify}
-            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-sm"
+          <LinkScroll
+            to="contactFormSection" // Matches the name of the Element in the Footer
+            spy={true}
+            smooth={true}
+            duration={500}
           >
-            GET QUOTE
-          </button>
+            <button className="w-full bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in-out transform hover:scale-105 text-sm">
+              GET QUOTE
+            </button>
+          </LinkScroll>
         </div>
       </div>
     </header>

@@ -1,5 +1,4 @@
 import React from "react";
-import QuoteForm from "../components/ui/QuoteForm";
 import PageHeader from "../components/ui/PageHeader";
 import Image from "next/image";
 import { CheckCircle } from "lucide-react";
@@ -125,7 +124,6 @@ const page = () => {
           </ul>
         </div>
       </div>
-      <QuoteForm />
     </div>
   );
 };

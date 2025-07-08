@@ -33,7 +33,7 @@ export default function Home() {
       <AboutBanner />
 
       <FireSuppressionSection />
-      <FreeQuoteSection />
+      {/* <FreeQuoteSection /> */}
       <BlogPostsSection />
     </div>
   );

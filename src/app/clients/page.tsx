@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import QuoteForm from "../components/ui/QuoteForm";
 import PageHeader from "../components/ui/PageHeader";
 import Clients from "../components/home/Clients";
 import Testimonial from "../components/ui/Testimonial";
@@ -78,7 +77,6 @@ const page = () => {
           intervalTime={10000}
         />
       </div>
-      <QuoteForm />
     </div>
   );
 };

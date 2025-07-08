@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { toast } from "react-toastify";
 
@@ -48,12 +49,11 @@ const AboutBanner = () => {
           </div>
         </div>
         <div className="mt-8 flex justify-center">
-          <button
-            onClick={notify}
-            className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200"
-          >
-            About Hoot Builder
-          </button>
+          <Link href="/about-us">
+            <button className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+              About Hoot Builder
+            </button>
+          </Link>
         </div>
       </div>
     </section>

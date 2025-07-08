@@ -1,6 +1,5 @@
 import React from "react";
 import PageHeader from "../components/ui/PageHeader";
-import QuoteForm from "../components/ui/QuoteForm";
 
 const page = () => {
   const servicesData = {
@@ -96,7 +95,7 @@ const page = () => {
     <div>
       <PageHeader
         imageAlt="Contact Us"
-        imageUrl="/images/img-article-freezer-maintenance.webp"
+        imageUrl="/images/img-bg-featured.webp"
         title="Contact Us"
         breadcrumbs={[{ label: "Hood Builder", href: "/" }, { label: "Contact Us" }]}
       />
@@ -138,7 +137,6 @@ const page = () => {
           </div>
         </div>
       </div>
-      <QuoteForm />
     </div>
   );
 };
