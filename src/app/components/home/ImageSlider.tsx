@@ -51,46 +51,34 @@ const originalItems: CarouselItem[] = [
 ];
 
 const VISIBLE_ITEMS_DESKTOP = 4;
-// Changed DUPLICATION_COUNT to mirror the full original array length.
-// This is best practice for truly seamless infinite carousels where
-// you jump instantly back to the original content.
-const DUPLICATION_COUNT = originalItems.length;
+// DUPLICATION_COUNT for seamless looping.
+// If you display 4 items, and duplicate 4 from each end for the loop, it's consistent.
+const DUPLICATION_COUNT = VISIBLE_ITEMS_DESKTOP;
 
 const ImageSlider: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  // No longer need itemRef for width calculation, as it's derived from container
   const [isScrolling, setIsScrolling] = useState(false);
 
   const loopedItems = useMemo(() => {
-    const pre = originalItems.slice(-DUPLICATION_COUNT); // Prepend last DUPLICATION_COUNT items
-    const post = originalItems.slice(0, DUPLICATION_COUNT); // Append first DUPLICATION_COUNT items
+    const pre = originalItems.slice(-DUPLICATION_COUNT); // Last N items prepended
+    const post = originalItems.slice(0, DUPLICATION_COUNT); // First N items appended
     return [...pre, ...originalItems, ...post];
   }, []);
 
+  // *** CRITICAL: REMOVED THE useEffect THAT SETS INITIAL SCROLLLEFT ***
+  // This ensures absolutely no programmatic scroll on page load.
+  // The carousel will start with the prepended items visible.
+
   const getItemWidth = useCallback(() => {
-    // Calculate width based on the carousel container's width and the number of visible items
     const containerWidth = carouselRef.current?.offsetWidth || 0;
-    // Account for potential `gap` or `space-x` if you add it back.
-    // For `minWidth: calc(100% / ${VISIBLE_ITEMS_DESKTOP})`, this calculation is accurate.
     return containerWidth / VISIBLE_ITEMS_DESKTOP;
   }, []);
-
-  // --- Initial Position (Instant Jump, Not a Smooth Scroll) ---
-  // This useEffect ensures the carousel starts at the "real" beginning
-  // of your items, not the duplicated prepended ones.
-  // It happens instantly on mount, before user interaction.
-  useEffect(() => {
-    if (carouselRef.current) {
-      // Set scrollLeft to the start of the 'originalItems' section
-      carouselRef.current.scrollLeft = DUPLICATION_COUNT * getItemWidth();
-    }
-  }, [getItemWidth]); // Depend on getItemWidth to ensure calculation is ready
 
   const scrollTo = useCallback((target: number) => {
     if (!carouselRef.current) return;
     setIsScrolling(true);
     carouselRef.current.scrollTo({ left: target, behavior: "smooth" });
-    setTimeout(() => setIsScrolling(false), 600); // Match this with your CSS scroll-behavior duration
+    setTimeout(() => setIsScrolling(false), 600);
   }, []);
 
   const goToPrev = useCallback(() => {
@@ -108,27 +96,20 @@ const ImageSlider: React.FC = () => {
 
     const scrollLeft = carouselRef.current.scrollLeft;
     const itemWidth = getItemWidth();
-    if (itemWidth === 0) return; // Avoid division by zero
+    if (itemWidth === 0) return;
 
     const totalOriginalWidth = originalItems.length * itemWidth;
     const preWidth = DUPLICATION_COUNT * itemWidth;
-    // The "post" duplicated section starts right after the "original" section
     const postStart = preWidth + totalOriginalWidth;
 
     // If scrolled into the pre-pended duplicates (left end)
     if (scrollLeft < preWidth) {
-      // Calculate how far into the 'pre' section we are (from its start)
       const offsetInPre = preWidth - scrollLeft;
-      // Jump to the equivalent position in the 'original' content,
-      // measured from the *end* of the original content backwards.
-      carouselRef.current.scrollLeft = postStart - offsetInPre;
+      carouselRef.current.scrollLeft = totalOriginalWidth + (preWidth - offsetInPre); // Corrected calculation
     }
     // If scrolled into the appended duplicates (right end)
     else if (scrollLeft >= postStart) {
-      // Calculate how far into the 'post' section we are (from its start)
       const offsetInPost = scrollLeft - postStart;
-      // Jump back to the equivalent position in the 'original' section,
-      // measured from the *start* of the original content forwards.
       carouselRef.current.scrollLeft = preWidth + offsetInPost;
     }
   }, [isScrolling, getItemWidth]);
@@ -149,10 +130,10 @@ const ImageSlider: React.FC = () => {
         // Ensure no external spacing like space-x-2 here that conflicts with minWidth calculation
       >
         {loopedItems.map((item, i) => {
-          // Identify images that are part of the *initial visible segment*
-          // after the programmatic jump to the 'originalItems' section.
-          // These are the images from index `DUPLICATION_COUNT` up to `DUPLICATION_COUNT + VISIBLE_ITEMS_DESKTOP - 1`
-          const isPriorityImage = i >= DUPLICATION_COUNT && i < DUPLICATION_COUNT + VISIBLE_ITEMS_DESKTOP;
+          // Priority logic for when there is NO initial programmatic scroll.
+          // The LCP will be among the first `VISIBLE_ITEMS_DESKTOP` images
+          // that are *naturally visible* from the very beginning of the `loopedItems` array.
+          const isPriorityImage = i < VISIBLE_ITEMS_DESKTOP;
 
           return (
             <div
@@ -170,7 +151,9 @@ const ImageSlider: React.FC = () => {
                          (max-width: 1280px) 33vw,
                          25vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
-                  priority={isPriorityImage} // Apply priority to the items that are visible AFTER the instant initial jump
+                  // Apply priority to the items that are visible ON INITIAL RENDER
+                  // (which are the prepended duplicates if no initial scroll is made)
+                  priority={isPriorityImage}
                 />
                 <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
                   {item.icon && (
