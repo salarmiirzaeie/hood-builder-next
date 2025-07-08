@@ -2,11 +2,9 @@
 "use client";
 
 import React from "react";
-import { toast } from "react-toastify";
+import { Link } from "react-scroll";
 
 const FireSuppressionSection: React.FC = () => {
-  const notify = () => toast("Coming Soon!");
-
   return (
     <section className="bg-white text-gray-800 py-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto  px-4 ">
@@ -66,13 +64,19 @@ const FireSuppressionSection: React.FC = () => {
             </p>
             <div className="pt-4 flex justify-center lg:justify-start">
               {/* Centered button on small, left-aligned on large */}
-              <button
-                onClick={notify}
-                className="bg-primary text-white font-bold py-4 px-10 rounded-full text-lg uppercase
-                                 hover:bg-blue-800 transition-colors duration-300 shadow-lg"
+              <Link
+                to="contactFormSection" // Matches the name of the Element in the Footer
+                spy={true}
+                smooth={true}
+                duration={500}
               >
-                GET A FREE QUOTE
-              </button>
+                <button
+                  className="bg-primary text-white font-bold py-4 px-10 rounded-full text-lg uppercase
+                                 hover:bg-blue-800 transition-colors duration-300 shadow-lg"
+                >
+                  GET A FREE QUOTE
+                </button>
+              </Link>
             </div>
           </div>
         </div>

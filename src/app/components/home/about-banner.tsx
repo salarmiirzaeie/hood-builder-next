@@ -2,11 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { toast } from "react-toastify";
 
 const AboutBanner = () => {
-  const notify = () => toast("Coming Soon!");
-
   return (
     <section className="bg-[#eee] relative text-gray-800 pb-16 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto  px-4 ">

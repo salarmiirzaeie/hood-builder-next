@@ -1,11 +1,8 @@
 "use client";
 import React from "react";
 import { Link } from "react-scroll";
-import { toast } from "react-toastify";
 
 const InfoSection = () => {
-  const notify = () => toast("Coming Soon!");
-
   return (
     <section className="flex  flex-col items-center border-b border-gray-200 justify-center bg-white py-16 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-4xl mx-auto    text-center">
