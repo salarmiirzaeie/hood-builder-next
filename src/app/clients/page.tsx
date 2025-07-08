@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import QuoteForm from "../components/ui/QuoteForm";
 import PageHeader from "../components/ui/PageHeader";
 import Clients from "../components/home/Clients";
+import Testimonial from "../components/ui/Testimonial";
 
 const page = () => {
   const logos = [
@@ -49,6 +51,33 @@ const page = () => {
       />
 
       <Clients showButton={false} logos={logos} />
+      <div className="w-full  max-w-7xl mx-auto ">
+        <Testimonial
+          testimonials={[
+            {
+              quote:
+                "They are well professionals. Thanks for fixing my hood and duct. (Original) Son bien professionals. Gracias por areglar me campana y ducto.",
+              author: "Graciela Matta ",
+            },
+            {
+              quote:
+                "They put me a new Air Extractor. What a difference ! Thank you (Original) Me pusieron un nuevo Extractor de Aire. Que diferencia ! Gracias",
+              author: "Thomas Lozoya",
+            },
+            {
+              quote:
+                "Been with Massoud's companies for years. Didn't realize they also did construction work. I had my duct system upgraded by hoodbuilder didn't realize it was Massoud's company too. Love you guys!",
+              author: "Jamie Robertson",
+            },
+            {
+              quote:
+                "As you say your are a one stop shop. Had our duct repaired and had our system checked with our hood cleaning. We had everything done in one day.",
+              author: " Blake Rienhardt ",
+            },
+          ]}
+          intervalTime={10000}
+        />
+      </div>
       <QuoteForm />
     </div>
   );

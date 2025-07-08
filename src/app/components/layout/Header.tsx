@@ -30,9 +30,9 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center">
           {/* Logo Section */}
           <div className="flex-shrink-0 mb-4 md:mb-0">
-            <div className="flex flex-col items-start cursor-pointer" onClick={notify}>
+            <Link className="flex flex-col items-start cursor-pointer" href="/">
               <Image width={200} height={100} src="/logos/logo-main-3.webp" alt="Hoodbuilder Logo" />
-            </div>
+            </Link>
           </div>
 
           {/* Phone Number */}
