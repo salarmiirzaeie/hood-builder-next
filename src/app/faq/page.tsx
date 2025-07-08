@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import PageHeader from "../components/ui/PageHeader";
 
-const page = () => {
+const Page = () => {
   const faqData = [
     {
       question: "Is It Necessary To Have My Kitchen Exhaust System Cleaned?",
@@ -54,6 +54,7 @@ const page = () => {
         "Hood Builder can keep your exhaust systems clean, including all hoods, vents, fans, and duct work, as well as perform kitchen equipment maintenance and service. Our technician can also check your fire suppression systems for compliance, maintain your systems and perform regular service to keep your kitchen, equipment and personnel safe from harm at all times. To learn more about the cleaning, maintenance and installation services we offer, visit our Services page.",
     },
   ];
+
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -113,9 +114,9 @@ const page = () => {
                     contentRefs.current[index] = el;
                   }
                 }}
-                className={`overflow-hidden transition-all duration-500 ease-in-out`}
+                className="overflow-hidden transition-all duration-500 ease-in-out"
                 style={{
-                  maxHeight: openIndex === index ? contentRefs.current[index]?.scrollHeight + "px" : "0px",
+                  maxHeight: openIndex === index ? `${contentRefs.current[index]?.scrollHeight}px` : "0px",
                   opacity: openIndex === index ? 1 : 0,
                   transitionProperty: "max-height, opacity",
                 }}
@@ -132,4 +133,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
