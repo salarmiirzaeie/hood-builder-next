@@ -17,8 +17,6 @@ interface ClientsProps {
 const Clients: React.FC<ClientsProps> = ({ logos, showButton = true }) => {
   // Array of logo data (using placeholder images for demonstration)
 
-  const notify = () => toast("Coming Soon!");
-
   return (
     <div className=" flex flex-col border-b border-gray-200 items-center justify-center bg-white font-sans p-4">
       {/* Container for the logo grid */}
