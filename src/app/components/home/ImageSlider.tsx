@@ -27,6 +27,7 @@ const originalItems: CarouselItem[] = [
     title: "FIRE PROTECTION",
     hasButton: false,
   },
+
   {
     id: 3,
     image: "/images/img-slider-hoods.webp",
@@ -51,27 +52,21 @@ const originalItems: CarouselItem[] = [
 ];
 
 const VISIBLE_ITEMS_DESKTOP = 4;
-// DUPLICATION_COUNT for seamless looping.
-// If you display 4 items, and duplicate 4 from each end for the loop, it's consistent.
 const DUPLICATION_COUNT = VISIBLE_ITEMS_DESKTOP;
 
 const ImageSlider: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const itemRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
 
   const loopedItems = useMemo(() => {
-    const pre = originalItems.slice(-DUPLICATION_COUNT); // Last N items prepended
-    const post = originalItems.slice(0, DUPLICATION_COUNT); // First N items appended
+    const pre = originalItems.slice(-DUPLICATION_COUNT);
+    const post = originalItems.slice(0, DUPLICATION_COUNT);
     return [...pre, ...originalItems, ...post];
   }, []);
 
-  // *** CRITICAL: REMOVED THE useEffect THAT SETS INITIAL SCROLLLEFT ***
-  // This ensures absolutely no programmatic scroll on page load.
-  // The carousel will start with the prepended items visible.
-
   const getItemWidth = useCallback(() => {
-    const containerWidth = carouselRef.current?.offsetWidth || 0;
-    return containerWidth / VISIBLE_ITEMS_DESKTOP;
+    return itemRef.current?.offsetWidth || 0;
   }, []);
 
   const scrollTo = useCallback((target: number) => {
@@ -96,21 +91,13 @@ const ImageSlider: React.FC = () => {
 
     const scrollLeft = carouselRef.current.scrollLeft;
     const itemWidth = getItemWidth();
-    if (itemWidth === 0) return;
-
-    const totalOriginalWidth = originalItems.length * itemWidth;
+    const totalWidth = originalItems.length * itemWidth;
     const preWidth = DUPLICATION_COUNT * itemWidth;
-    const postStart = preWidth + totalOriginalWidth;
 
-    // If scrolled into the pre-pended duplicates (left end)
     if (scrollLeft < preWidth) {
-      const offsetInPre = preWidth - scrollLeft;
-      carouselRef.current.scrollLeft = totalOriginalWidth + (preWidth - offsetInPre); // Corrected calculation
-    }
-    // If scrolled into the appended duplicates (right end)
-    else if (scrollLeft >= postStart) {
-      const offsetInPost = scrollLeft - postStart;
-      carouselRef.current.scrollLeft = preWidth + offsetInPost;
+      carouselRef.current.scrollLeft = totalWidth + scrollLeft;
+    } else if (scrollLeft >= preWidth + totalWidth) {
+      carouselRef.current.scrollLeft = scrollLeft - totalWidth;
     }
   }, [isScrolling, getItemWidth]);
 
@@ -126,64 +113,55 @@ const ImageSlider: React.FC = () => {
     <div className="relative w-full mt-2 overflow-hidden">
       <div
         ref={carouselRef}
-        className="flex overflow-x-scroll scroll-smooth snap-x snap-mandatory hide-scrollbar"
-        // Ensure no external spacing like space-x-2 here that conflicts with minWidth calculation
+        className="flex overflow-x-scroll scroll-smooth snap-x snap-mandatory hide-scrollbar space-x-2"
       >
-        {loopedItems.map((item, i) => {
-          // Priority logic for when there is NO initial programmatic scroll.
-          // The LCP will be among the first `VISIBLE_ITEMS_DESKTOP` images
-          // that are *naturally visible* from the very beginning of the `loopedItems` array.
-          const isPriorityImage = i < VISIBLE_ITEMS_DESKTOP;
-
-          return (
-            <div
-              key={`${item.id}-${i}`} // Use a combined key for uniqueness
-              className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 snap-start relative group"
-              style={{ minWidth: `calc(100% / ${VISIBLE_ITEMS_DESKTOP})` }}
-            >
-              <div className="relative w-full h-96 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw,
-                         (max-width: 1024px) 50vw,
-                         (max-width: 1280px) 33vw,
-                         25vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
-                  // Apply priority to the items that are visible ON INITIAL RENDER
-                  // (which are the prepended duplicates if no initial scroll is made)
-                  priority={isPriorityImage}
-                />
-                <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
-                  {item.icon && (
-                    <Image
-                      src={item.icon}
-                      alt={`${item.title} icon`} // More descriptive alt text
-                      width={50}
-                      height={50}
-                      className="mb-4 opacity-75 group-hover:opacity-100 transition-opacity duration-300"
-                    />
-                  )}
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 uppercase leading-tight group-hover:text-amber-300 transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  {item.hasButton && (
-                    <button className="mt-4 px-6 py-2 border border-white text-white text-sm uppercase font-semibold rounded-full hover:bg-white hover:text-gray-800 transition-colors duration-300">
-                      {item.buttonText}
-                    </button>
-                  )}
-                </div>
+        {loopedItems.map((item, i) => (
+          <div
+            ref={i === DUPLICATION_COUNT ? itemRef : null}
+            key={`${item.id}-${i}`}
+            className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 snap-start relative group"
+            style={{ minWidth: `calc(100% / ${VISIBLE_ITEMS_DESKTOP})` }}
+          >
+            <div className="relative w-full h-96 overflow-hidden">
+              <Image
+                src={item.image}
+                alt={item.title}
+                fill
+                sizes="(max-width: 768px) 100vw,
+                       (max-width: 1024px) 50vw,
+                       (max-width: 1280px) 33vw,
+                       25vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
+                priority={true}
+              />
+              <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
+                {item.icon && (
+                  <Image
+                    src={item.icon}
+                    alt="icon"
+                    width={50}
+                    height={50}
+                    className="mb-4 opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                )}
+                <h3 className="text-xl md:text-2xl font-bold mb-2 uppercase leading-tight group-hover:text-amber-300 transition-colors duration-300">
+                  {item.title}
+                </h3>
+                {item.hasButton && (
+                  <button className="mt-4 px-6 py-2 border border-white text-white text-sm uppercase font-semibold rounded-full hover:bg-white hover:text-gray-800 transition-colors duration-300">
+                    {item.buttonText}
+                  </button>
+                )}
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
       {/* Navigation */}
       <button
         onClick={goToPrev}
-        aria-label="Previous slide"
+        aria-label="Previous"
         className="absolute top-1/2 left-4 -translate-y-1/2 bg-white bg-opacity-75 p-3 rounded-full shadow-lg hover:bg-opacity-100 transition-all duration-300 z-30"
       >
         <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -192,7 +170,7 @@ const ImageSlider: React.FC = () => {
       </button>
       <button
         onClick={goToNext}
-        aria-label="Next slide"
+        aria-label="Next"
         className="absolute top-1/2 right-4 -translate-y-1/2 bg-white bg-opacity-75 p-3 rounded-full shadow-lg hover:bg-opacity-100 transition-all duration-300 z-30"
       >
         <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,4 +181,4 @@ const ImageSlider: React.FC = () => {
   );
 };
 
-export default ImageSlider;
+export default React.memo(ImageSlider);

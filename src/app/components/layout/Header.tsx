@@ -15,12 +15,12 @@ const Header = () => {
   const notify = () => toast("Coming Soon!");
 
   const navItems = [
-    { label: "ALL SERVICES", href: "/services" },
+    // { label: "ALL SERVICES", href: "/services" },
     { label: "ABOUT US", href: "/about-us" },
     { label: "CLIENTS", href: "/clients" },
     // { label: "HOODBUILDER'S PROJECTS", href: "/hoodbuilders-featured-projects" },
     { label: "FAQ", href: "/faq" },
-    { label: "BLOG", href: "/blog" },
+    // { label: "BLOG", href: "/blog" },
     { label: "CONTACT US", href: "/contact-us" },
   ];
   return (
