@@ -56,7 +56,6 @@ const DUPLICATION_COUNT = VISIBLE_ITEMS_DESKTOP;
 
 const ImageSlider: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const itemRef = useRef<HTMLDivElement>(null); // This ref will now be for calculating width only
   const [isScrolling, setIsScrolling] = useState(false);
 
   const loopedItems = useMemo(() => {
