@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React from "react";
 import { toast } from "react-toastify";
-import Testimonial from "../ui/Testimonial";
 interface Logo {
   name: string;
   src: string;
