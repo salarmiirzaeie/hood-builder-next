@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -65,7 +66,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, breadcrumbs, description
 
       {/* Right Box: Image */}
       <div className="w-full md:w-1/2 bg-gray-200 flex items-center justify-center h-[200px] sm:h-[300px] md:h-[400px] order-2 md:order-2">
-        <img src={imageUrl} alt={imageAlt} className="w-full h-full object-cover" />
+        <Image width={800} height={307} src={imageUrl} alt={imageAlt} className="w-full h-full object-cover" />
       </div>
     </div>
   );

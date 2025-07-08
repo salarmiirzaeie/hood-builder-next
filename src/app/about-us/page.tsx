@@ -79,10 +79,12 @@ const page = () => {
       </div>
       <div className="relative w-full h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden flex items-center justify-center">
         {/* Background Image */}
-        <img
+        <Image
           src="/images/img-aboutus2.webp" // Placeholder image URL
           alt="Restaurant with city view background"
           className="absolute inset-0 w-full h-full object-cover"
+          width={1900}
+          height={700}
         />
 
         {/* Overlay Content Box */}

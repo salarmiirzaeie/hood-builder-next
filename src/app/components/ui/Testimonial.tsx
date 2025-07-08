@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 // Define the interface for a single testimonial item
@@ -63,28 +64,11 @@ const Testimonial: React.FC<TestimonialProps> = ({
 
                 {/* Avatar */}
                 <div className="mb-6 flex justify-center">
-                  {testimonial.avatarSrc ? (
-                    <img
-                      src={testimonial.avatarSrc}
-                      alt={testimonial.author}
-                      className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-pink-500 shadow-md"
-                      onError={(e) => {
-                        // Fallback to a placeholder icon if image fails to load
-                        const target = e.target as HTMLImageElement;
-                        target.onerror = null; // Prevent infinite loop
-                        target.src = "https://placehold.co/96x96/f0f0f0/888888?text=User"; // Placeholder image
-                        target.className =
-                          "w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-pink-500 shadow-md flex items-center justify-center text-gray-500 text-4xl";
-                      }}
-                    />
-                  ) : (
-                    // Default avatar icon if no avatarSrc is provided
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-pink-100 border-4 border-pink-500 shadow-md flex items-center justify-center">
-                      <svg className="w-12 h-12 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM12 12.5c2.757 0 5-2.243 5-5s-2.243-5-5-5-5 2.243-5 5 2.243 5 5 5z" />
-                      </svg>
-                    </div>
-                  )}
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-pink-100 border-4 border-pink-500 shadow-md flex items-center justify-center">
+                    <svg className="w-12 h-12 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM12 12.5c2.757 0 5-2.243 5-5s-2.243-5-5-5-5 2.243-5 5 2.243 5 5 5z" />
+                    </svg>
+                  </div>
                 </div>
 
                 {/* Author Name */}
