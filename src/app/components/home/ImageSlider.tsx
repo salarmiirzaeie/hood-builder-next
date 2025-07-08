@@ -56,7 +56,6 @@ const DUPLICATION_COUNT = VISIBLE_ITEMS_DESKTOP;
 
 const ImageSlider: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
-  const itemRef = useRef<HTMLDivElement>(null);
   const [isScrolling, setIsScrolling] = useState(false);
 
   const loopedItems = useMemo(() => {
@@ -66,14 +65,16 @@ const ImageSlider: React.FC = () => {
   }, []);
 
   const getItemWidth = useCallback(() => {
-    return itemRef.current?.offsetWidth || 0;
+    // Corrected: Cast to HTMLElement to access offsetWidth
+    const firstChild = carouselRef.current?.children[0] as HTMLElement;
+    return firstChild?.offsetWidth || 0;
   }, []);
 
   const scrollTo = useCallback((target: number) => {
     if (!carouselRef.current) return;
     setIsScrolling(true);
     carouselRef.current.scrollTo({ left: target, behavior: "smooth" });
-    setTimeout(() => setIsScrolling(false), 600);
+    setTimeout(() => setIsScrolling(false), 700);
   }, []);
 
   const goToPrev = useCallback(() => {
@@ -91,13 +92,21 @@ const ImageSlider: React.FC = () => {
 
     const scrollLeft = carouselRef.current.scrollLeft;
     const itemWidth = getItemWidth();
-    const totalWidth = originalItems.length * itemWidth;
+    // Ensure itemWidth is not 0 before calculations to prevent division by zero or incorrect logic
+    if (itemWidth === 0) return;
+
+    const totalOriginalWidth = originalItems.length * itemWidth;
     const preWidth = DUPLICATION_COUNT * itemWidth;
 
-    if (scrollLeft < preWidth) {
-      carouselRef.current.scrollLeft = totalWidth + scrollLeft;
-    } else if (scrollLeft >= preWidth + totalWidth) {
-      carouselRef.current.scrollLeft = scrollLeft - totalWidth;
+    // Check if scrolled into the 'pre' duplicated section
+    if (scrollLeft < preWidth && scrollLeft !== 0) {
+      // Instantly jump to the corresponding position in the 'post' section
+      carouselRef.current.scrollLeft = totalOriginalWidth + scrollLeft;
+    }
+    // Check if scrolled past the 'original' and into the 'post' duplicated section
+    else if (scrollLeft >= preWidth + totalOriginalWidth) {
+      // Instantly jump back to the corresponding position in the 'original' section
+      carouselRef.current.scrollLeft = scrollLeft - totalOriginalWidth;
     }
   }, [isScrolling, getItemWidth]);
 
@@ -117,7 +126,8 @@ const ImageSlider: React.FC = () => {
       >
         {loopedItems.map((item, i) => (
           <div
-            ref={i === DUPLICATION_COUNT ? itemRef : null}
+            // Removed itemRef as it's no longer strictly needed for width calculation.
+            // If you had other logic relying on it for a specific item, you'd re-add it.
             key={`${item.id}-${i}`}
             className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 snap-start relative group"
             style={{ minWidth: `calc(100% / ${VISIBLE_ITEMS_DESKTOP})` }}
@@ -132,13 +142,13 @@ const ImageSlider: React.FC = () => {
                        (max-width: 1280px) 33vw,
                        25vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
-                priority={item.id === 2}
+                priority={i === 0}
               />
               <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
                 {item.icon && (
                   <Image
                     src={item.icon}
-                    alt="icon"
+                    alt={`${item.title} icon`}
                     width={50}
                     height={50}
                     className="mb-4 opacity-75 group-hover:opacity-100 transition-opacity duration-300"
@@ -161,7 +171,7 @@ const ImageSlider: React.FC = () => {
       {/* Navigation */}
       <button
         onClick={goToPrev}
-        aria-label="Previous"
+        aria-label="Previous slide"
         className="absolute top-1/2 left-4 -translate-y-1/2 bg-white bg-opacity-75 p-3 rounded-full shadow-lg hover:bg-opacity-100 transition-all duration-300 z-30"
       >
         <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -170,7 +180,7 @@ const ImageSlider: React.FC = () => {
       </button>
       <button
         onClick={goToNext}
-        aria-label="Next"
+        aria-label="Next slide"
         className="absolute top-1/2 right-4 -translate-y-1/2 bg-white bg-opacity-75 p-3 rounded-full shadow-lg hover:bg-opacity-100 transition-all duration-300 z-30"
       >
         <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
