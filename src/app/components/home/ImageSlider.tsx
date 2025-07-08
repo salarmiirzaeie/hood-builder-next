@@ -123,7 +123,6 @@ const ImageSlider: React.FC = () => {
     const scrollLeft = carouselRef.current.scrollLeft;
     const totalOriginalWidth = originalItems.length * itemWidth;
     const preWidth = DUPLICATION_COUNT * itemWidth;
-    const postWidth = DUPLICATION_COUNT * itemWidth; // Equivalent to preWidth
 
     // Check if scrolled into the 'pre' duplicated section (towards the beginning)
     if (scrollLeft < preWidth) {
