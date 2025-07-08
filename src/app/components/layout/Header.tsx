@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import Image from "next/image";
-import { toast } from "react-toastify";
 import Link from "next/link";
 import { Link as LinkScroll } from "react-scroll";
 
@@ -12,8 +11,6 @@ const Header = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
-  const notify = () => toast("Coming Soon!");
 
   const navItems = [
     // { label: "ALL SERVICES", href: "/services" },
