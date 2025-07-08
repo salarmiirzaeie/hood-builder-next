@@ -11,12 +11,22 @@ import RestaurantInfoSection from "./components/home/RestaurantInfoSection";
 import AboutBanner from "./components/home/about-banner";
 
 export default function Home() {
+  const logos = [
+    { name: "Pizza Hut", src: "/logos/logo-pizzahut.webp", width: 82, height: 83 },
+    { name: "McDonalds", src: "/logos/logo-ikea.webp", width: 119, height: 21 },
+    { name: "Toyota", src: "/logos/logo-carrefour.webp", width: 106, height: 84 },
+    { name: "Nissan", src: "/logos/logo-costco.webp", width: 132, height: 118 },
+    { name: "Costco", src: "/logos/logo-subway.webp", width: 134, height: 39 },
+    { name: "IKEA", src: "/logos/logo-toyota.webp", width: 82, height: 67 },
+    { name: "Carrefour", src: "/logos/logo-mcdonalds.webp", width: 96, height: 65 },
+    { name: "Subway", src: "/logos/logo-nissan.webp", width: 94, height: 80 },
+  ];
   return (
     <div>
       <RestaurantServicesHero />
       <ImageSlider />
       <InfoSection />
-      <Clients />
+      <Clients logos={logos} />
       <Description />
       <ServicesBanner />
       <RestaurantInfoSection />

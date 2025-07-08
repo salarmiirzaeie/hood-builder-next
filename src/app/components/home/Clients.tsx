@@ -2,20 +2,21 @@
 import Image from "next/image";
 import React from "react";
 import { toast } from "react-toastify";
-
+import Testimonial from "../ui/Testimonial";
+interface Logo {
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+}
+interface ClientsProps {
+  logos: Logo[];
+  showButton?: boolean;
+}
 // Main App component
-const Clients = () => {
+const Clients: React.FC<ClientsProps> = ({ logos, showButton = true }) => {
   // Array of logo data (using placeholder images for demonstration)
-  const logos = [
-    { name: "Pizza Hut", src: "/logos/logo-pizzahut.webp", width: 82, height: 83 },
-    { name: "McDonalds", src: "/logos/logo-ikea.webp", width: 119, height: 21 },
-    { name: "Toyota", src: "/logos/logo-carrefour.webp", width: 106, height: 84 },
-    { name: "Nissan", src: "/logos/logo-costco.webp", width: 132, height: 118 },
-    { name: "Costco", src: "/logos/logo-subway.webp", width: 134, height: 39 },
-    { name: "IKEA", src: "/logos/logo-toyota.webp", width: 82, height: 67 },
-    { name: "Carrefour", src: "/logos/logo-mcdonalds.webp", width: 96, height: 65 },
-    { name: "Subway", src: "/logos/logo-nissan.webp", width: 94, height: 80 },
-  ];
+
   const notify = () => toast("Coming Soon!");
 
   return (
@@ -37,16 +38,44 @@ const Clients = () => {
           ))}
         </div>
       </div>
-
-      {/* Button Section */}
-      <div className="mt-8 mb-16">
-        <button
-          onClick={notify}
-          className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200"
-        >
-          VIEW ALL CLIENTS
-        </button>
+      <div className="w-full  max-w-7xl mx-auto ">
+        <Testimonial
+          testimonials={[
+            {
+              quote:
+                "They are well professionals. Thanks for fixing my hood and duct. (Original) Son bien professionals. Gracias por areglar me campana y ducto.",
+              author: "Graciela Matta ",
+            },
+            {
+              quote:
+                "They put me a new Air Extractor. What a difference ! Thank you (Original) Me pusieron un nuevo Extractor de Aire. Que diferencia ! Gracias",
+              author: "Thomas Lozoya",
+            },
+            {
+              quote:
+                "Been with Massoud's companies for years. Didn't realize they also did construction work. I had my duct system upgraded by hoodbuilder didn't realize it was Massoud's company too. Love you guys!",
+              author: "Jamie Robertson",
+            },
+            {
+              quote:
+                "As you say your are a one stop shop. Had our duct repaired and had our system checked with our hood cleaning. We had everything done in one day.",
+              author: " Blake Rienhardt ",
+            },
+          ]}
+          intervalTime={10000}
+        />
       </div>
+
+      {showButton && (
+        <div className="mt-8 mb-16">
+          <button
+            onClick={notify}
+            className="px-8 py-3 bg-primary text-white font-semibold rounded-lg shadow-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200"
+          >
+            VIEW ALL CLIENTS
+          </button>
+        </div>
+      )}
     </div>
   );
 };

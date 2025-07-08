@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import Image from "next/image";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,8 +14,15 @@ const Header = () => {
 
   const notify = () => toast("Coming Soon!");
 
-  const navItems = ["ALL SERVICES", "ABOUT US", "CLIENTS", "HOODBUILDER'S PROJECTS", "FAQ", "BLOG", "CONTACT US"];
-
+  const navItems = [
+    { label: "ALL SERVICES", href: "/services" },
+    { label: "ABOUT US", href: "/about-us" },
+    { label: "CLIENTS", href: "/clients" },
+    // { label: "HOODBUILDER'S PROJECTS", href: "/hoodbuilders-featured-projects" },
+    { label: "FAQ", href: "/faq" },
+    { label: "BLOG", href: "/blog" },
+    { label: "CONTACT US", href: "/contact-us" },
+  ];
   return (
     <header className="font-inter">
       {/* Main Header Section */}
@@ -60,13 +68,13 @@ const Header = () => {
             <nav className="hidden md:flex flex-1 overflow-x-auto whitespace-nowrap scrollbar-hide">
               <div className="flex space-x-6 lg:space-x-8 py-2">
                 {navItems.map((item, index) => (
-                  <button
+                  <Link
                     key={index}
-                    onClick={notify}
+                    href={item.href}
                     className="text-gray-700 hover:text-indigo-600 px-2 py-1 text-sm font-medium rounded-md transition duration-300"
                   >
-                    {item}
-                  </button>
+                    {item.label}
+                  </Link>
                 ))}
               </div>
             </nav>
@@ -93,16 +101,13 @@ const Header = () => {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navItems.map((item, index) => (
-            <button
+            <Link
               key={index}
-              onClick={() => {
-                notify();
-                toggleMobileMenu();
-              }}
+              href={item.href}
               className="w-full text-left block text-gray-700 hover:bg-gray-100 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-300"
             >
-              {item}
-            </button>
+              {item.label}
+            </Link>
           ))}
         </div>
         <div className="px-4 py-2">
