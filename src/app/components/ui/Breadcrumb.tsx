@@ -1,11 +1,26 @@
+"use client";
+import { usePathname } from "next/navigation";
 import React from "react";
 
-const Breadcrumb = () => {
+const Breadcrumb: React.FC = () => {
+  const path = usePathname();
+  const title = path.split("/")[1];
   return (
-    <div className=" flex flex-col border-b border-gray-200 items-center justify-center bg-[#eee] font-sans p-4">
+    <div className=" flex flex-col items-center justify-center font-sans px-4">
       {/* Container for the logo grid */}
-      <div className="w-full  max-w-7xl mx-auto ">
-        <p className="text-3xl md:text-4xl text-red-300 font-bold mb-10 text-center">s</p>
+      <div className="w-full  max-w-7xl  flex justify-center items-center">
+        <div className=" border-b border-gray-300 ">
+          <div className="text-gray-500   text-base mb-2">
+            <a href="#" className="hover:underline">
+              Hood Builder
+            </a>
+            <span className="mx-1">&gt;</span>{" "}
+            <span className="font-semibold">{title[0].toUpperCase() + title.slice(1)}</span>
+          </div>
+          <h1 className="text-5xl text-center font-bold text-primary mb-4">
+            {title[0].toUpperCase() + title.slice(1)}
+          </h1>
+        </div>
       </div>
     </div>
   );

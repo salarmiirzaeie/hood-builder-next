@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div>
       <RestaurantServicesHero />
-      <ImageSlider />
+      {/* <ImageSlider /> */}
       <InfoSection />
       <Clients logos={logos} />
       <Description />
