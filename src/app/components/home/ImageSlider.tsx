@@ -122,7 +122,6 @@ const ImageSlider: React.FC = () => {
     const itemWidth = getItemWidth();
     const originalContentWidth = originalItems.length * itemWidth;
     const preContentWidth = DUPLICATION_COUNT * itemWidth;
-    const totalLoopedWidth = loopedItems.length * itemWidth;
 
     // Determine the "real" current index for pagination/accessibility
     // Adjust scrollLeft by preContentWidth to get the relative position within original items
