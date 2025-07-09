@@ -21,9 +21,15 @@ export async function generateStaticParams() {
   return paths;
 }
 
-export default function NestedServiceDetailPage({ params }: { params: { slug: string; actionSlug: string } }) {
-  // Changed 'categorySlug' to 'slug'
-  const { slug, actionSlug } = params; // Changed 'categorySlug' to 'slug'
+interface NestedServiceDetailPageProps {
+  params: {
+    slug: string;
+    actionSlug: string;
+  };
+}
+
+export default function NestedServiceDetailPage({ params }: NestedServiceDetailPageProps) {
+  const { slug, actionSlug } = params;
 
   // Find the parent service category using the 'slug' parameter
   const parentService = servicesData.find((s) => s.slug === slug && s.type === "dropdown"); // Changed 'categorySlug' to 'slug'
