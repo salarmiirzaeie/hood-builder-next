@@ -19,7 +19,7 @@ const Header = () => {
     { label: "CLIENTS", href: "/clients" },
     // { label: "HOODBUILDER'S PROJECTS", href: "/hoodbuilders-featured-projects" },
     { label: "FAQ", href: "/faq" },
-    // { label: "BLOG", href: "/blog" },
+    { label: "BLOG", href: "/blog" },
     { label: "CONTACT US", href: "/contact-us" },
   ];
   return (
