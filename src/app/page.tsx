@@ -4,7 +4,7 @@ import Clients from "./components/home/Clients";
 import Description from "./components/home/Discription";
 import ServicesBanner from "./components/home/services-banner";
 import BlogPostsSection from "./components/home/Blogs";
-import ImageSlider from "./components/home/ImageSlider";
+// import ImageSlider from "./components/home/ImageSlider";
 import FireSuppressionSection from "./components/home/FireSuppressionSection";
 import RestaurantInfoSection from "./components/home/RestaurantInfoSection";
 import AboutBanner from "./components/home/about-banner";
