@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -11,9 +12,9 @@ const Breadcrumb: React.FC = () => {
       <div className="w-full  max-w-7xl  flex justify-center items-center">
         <div className=" border-b border-gray-300 ">
           <div className="text-gray-500   text-base mb-2">
-            <a href="#" className="hover:underline">
+            <Link href={"/"} className="hover:underline">
               Hood Builder
-            </a>
+            </Link>
             <span className="mx-1">&gt;</span>{" "}
             <span className="font-semibold">{title[0].toUpperCase() + title.slice(1)}</span>
           </div>

@@ -1,0 +1,204 @@
+[
+  {
+    "label": "Walk-in coolers and freezers",
+    "type": "link",
+    "slug": "walk-in-coolers-and-freezers",
+    "title": "Walk-in Coolers and Freezers",
+    "description": "Expert installation, repair, and maintenance for all types of commercial walk-in coolers and freezers, ensuring optimal temperature control and food safety.",
+    "imageUrl": "https://placehold.co/600x400/FF5733/FFFFFF?text=Walk-in+Coolers",
+    "content": "Our team specializes in custom walk-in cooler and freezer solutions, from initial design and precise installation to urgent repairs and routine preventative maintenance. We ensure your refrigeration systems are energy-efficient, compliant with health codes, and perfectly suited to your business needs, keeping your perishables fresh and safe."
+  },
+  {
+    "label": "Food trucks/food trailers design",
+    "type": "link",
+    "slug": "food-trucks-design-fire-suppression-installation-services",
+    "title": "Food Trucks & Trailers Design",
+    "description": "Full-service design and build for custom food trucks and trailers, including kitchen layout, equipment installation, and fire suppression systems.",
+    "imageUrl": "https://placehold.co/600x400/33FF57/FFFFFF?text=Food+Truck+Design",
+    "content": "From concept to completion, we bring your mobile culinary vision to life. Our services include custom interior design, efficient kitchen layouts, professional equipment installation, and certified fire suppression system integration. We handle all aspects of the build, ensuring your food truck or trailer meets all regulations and is ready to operate safely and efficiently."
+  },
+  {
+    "label": "Restaurant Services",
+    "type": "dropdown",
+    "slug": "restaurant-services",
+    "title": "Restaurant Services Overview",
+    "description": "Comprehensive services for restaurant owners, from initial setup to ongoing maintenance and specialized repairs.",
+    "imageUrl": "https://placehold.co/600x400/3357FF/FFFFFF?text=Restaurant+Services",
+    "content": "Our restaurant services cover a broad spectrum of needs, ensuring your establishment runs smoothly and efficiently. We provide expert solutions for various aspects of your operations, from initial design and construction to specialized repairs and preventative maintenance programs. Our goal is to be your trusted partner in maintaining a safe, compliant, and productive restaurant environment.",
+    "subServices": [
+      {
+        "label": "Restaurant Repair",
+        "slug": "repair",
+        "title": "Restaurant Repair Services",
+        "description": "Fast and reliable repair services for all restaurant equipment and infrastructure, minimizing downtime.",
+        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=Restaurant+Repair",
+        "content": "When equipment breaks down, your business suffers. Our rapid response team provides expert repair services for commercial ovens, fryers, refrigeration units, plumbing, electrical systems, and more. We diagnose issues quickly and provide lasting solutions to get your kitchen back in full operation with minimal disruption."
+      },
+      {
+        "label": "Restaurant Installation",
+        "slug": "installation",
+        "title": "Restaurant Equipment Installation",
+        "description": "Professional installation of all commercial kitchen and dining equipment, ensuring proper setup and functionality.",
+        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Restaurant+Install",
+        "content": "Proper installation is key to the longevity and performance of your restaurant equipment. We handle the installation of everything from large cooking ranges and ventilation systems to dishwashers and refrigeration units. Our certified technicians ensure all installations meet manufacturer specifications and local codes, providing a safe and efficient setup."
+      },
+      {
+        "label": "Restaurant Cleaning",
+        "slug": "cleaning",
+        "title": "Restaurant Cleaning Services",
+        "description": "Deep cleaning services for commercial kitchens, including hood systems, exhaust fans, and general kitchen areas.",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Restaurant+Cleaning",
+        "content": "Maintaining a clean kitchen is essential for hygiene, safety, and compliance. Our deep cleaning services go beyond daily routines, tackling grease buildup in exhaust systems, cleaning hard-to-reach areas, and sanitizing all surfaces. We help you meet health inspection standards and provide a pristine working environment."
+      }
+    ]
+  },
+  {
+    "label": "Fire Protection",
+    "type": "dropdown",
+    "slug": "fire-protection",
+    "title": "Fire Protection Systems",
+    "description": "Installation, inspection, and maintenance of fire suppression systems for commercial kitchens, ensuring safety and compliance.",
+    "imageUrl": "https://placehold.co/600x400/FF5733/FFFFFF?text=Fire+Protection",
+    "content": "Fire safety is paramount in any commercial kitchen. We provide comprehensive fire protection services, including the design and installation of state-of-the-art fire suppression systems, regular inspections to ensure compliance with NFPA standards, and preventative maintenance. Protect your staff, property, and business with our reliable fire safety solutions.",
+    "subServices": [
+      {
+        "label": "Fire Suppression Installation",
+        "slug": "installation",
+        "title": "Fire Suppression System Installation",
+        "description": "Certified installation of automatic fire suppression systems for commercial kitchens.",
+        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=Fire+Suppress+Install",
+        "content": "Our certified technicians specialize in the precise installation of commercial kitchen fire suppression systems. We ensure that your system is correctly sized, strategically placed, and fully compliant with all local and national fire codes, providing maximum protection against kitchen fires."
+      },
+      {
+        "label": "Fire Suppression Inspection",
+        "slug": "inspection",
+        "title": "Fire Suppression System Inspection",
+        "description": "Regular inspections of fire suppression systems to ensure proper functionality and compliance.",
+        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Fire+Suppress+Inspect",
+        "content": "Routine inspections are critical for the reliability of your fire suppression system. We conduct thorough checks of all components, including nozzles, detectors, and control panels, to ensure they are in perfect working order. Our detailed reports help you maintain compliance and peace of mind."
+      },
+      {
+        "label": "Fire Extinguisher Service",
+        "slug": "extinguisher-service",
+        "title": "Fire Extinguisher Services",
+        "description": "Sales, installation, inspection, and recharging of fire extinguishers.",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Extinguisher+Service",
+        "content": "Beyond suppression systems, we offer complete fire extinguisher services. This includes advising on the correct types and placement of extinguishers, professional installation, annual inspections, and recharging services. Ensure your first line of defense against small fires is always ready."
+      }
+    ]
+  },
+  {
+    "label": "Restaurant Build Up & General Constructing",
+    "type": "dropdown",
+    "slug": "restaurant-build-up-general-constructing",
+    "title": "Restaurant Construction & Build-Outs",
+    "description": "Full-service general contracting for new restaurant construction, renovations, and build-outs, from concept to grand opening.",
+    "imageUrl": "https://placehold.co/600x400/33FF57/FFFFFF?text=Restaurant+Construction",
+    "content": "Building or renovating a restaurant requires specialized expertise. We act as your general contractor, managing all phases of construction, including architectural planning, permitting, demolition, framing, electrical, plumbing, and finishing. Our goal is to deliver your project on time and within budget, creating a space that is both beautiful and highly functional.",
+    "subServices": [
+      {
+        "label": "New Restaurant Construction",
+        "slug": "new-construction",
+        "title": "New Restaurant Construction",
+        "description": "Ground-up construction services for new restaurant establishments.",
+        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=New+Construct",
+        "content": "From empty lot to grand opening, we manage the entire new construction process for your restaurant. Our services include site preparation, foundation work, structural framing, exterior finishing, and interior build-out, all while coordinating with architects and designers to bring your vision to life."
+      },
+      {
+        "label": "Restaurant Renovation",
+        "slug": "renovation",
+        "title": "Restaurant Renovation & Remodeling",
+        "description": "Comprehensive renovation and remodeling services to update and optimize existing restaurant spaces.",
+        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Restaurant+Renovate",
+        "content": "Give your existing restaurant a fresh look and improved functionality with our renovation services. Whether it's a minor refresh or a major overhaul, we handle everything from kitchen upgrades and dining area redesigns to facade improvements and structural modifications, ensuring minimal disruption to your operations."
+      },
+      {
+        "label": "Tenant Improvement",
+        "slug": "tenant-improvement",
+        "title": "Restaurant Tenant Improvement",
+        "description": "Custom build-out services for leased commercial spaces to meet restaurant specifications.",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Tenant+Improvement",
+        "content": "We specialize in transforming raw commercial spaces into fully operational restaurants. Our tenant improvement services include custom kitchen build-outs, dining area construction, plumbing and electrical system installation, and compliance with all health and safety regulations, tailored to your specific lease requirements."
+      }
+    ]
+  },
+  {
+    "label": "Hoods",
+    "type": "dropdown",
+    "slug": "hoods",
+    "title": "Commercial Kitchen Hood Systems",
+    "description": "Installation, repair, and cleaning services for all types of commercial kitchen exhaust hoods.",
+    "imageUrl": "https://placehold.co/600x400/3357FF/FFFFFF?text=Hood+Systems",
+    "content": "A properly functioning hood system is essential for air quality and safety in your commercial kitchen. We provide end-to-end services for exhaust hoods, including expert installation of various types, rapid repair of fan motors and ductwork, and thorough cleaning to prevent grease buildup and fire hazards. Ensure your kitchen ventilation meets all regulatory standards.",
+    "subServices": [
+      {
+        "label": "Hood Installation",
+        "slug": "installation",
+        "title": "Commercial Hood Installation",
+        "description": "Professional installation of commercial kitchen exhaust hoods, ensuring compliance and efficiency.",
+        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=Hood+Install",
+        "content": "We provide expert installation of all types of commercial kitchen exhaust hoods, including canopy, wall-mounted, and island hoods. Our installations ensure proper sizing, ducting, and fan integration to effectively remove smoke, steam, and grease, creating a safer and cleaner working environment."
+      },
+      {
+        "label": "Hood Repair",
+        "slug": "repair",
+        "title": "Commercial Hood Repair",
+        "description": "Fast and reliable repair services for commercial kitchen hoods and exhaust systems.",
+        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Hood+Repair",
+        "content": "Malfunctioning hoods can compromise kitchen safety and air quality. Our technicians quickly diagnose and repair issues with hood fans, motors, ductwork, and electrical components. We ensure your exhaust system is fully operational, restoring proper ventilation and compliance."
+      },
+      {
+        "label": "Hood Cleaning",
+        "slug": "cleaning",
+        "title": "Commercial Hood Cleaning",
+        "description": "Thorough cleaning services for commercial kitchen exhaust hoods and ductwork to prevent grease fires.",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Hood+Cleaning",
+        "content": "Regular deep cleaning of your commercial kitchen hood and exhaust system is vital for fire prevention and health code compliance. We remove all accumulated grease and debris from hoods, filters, ductwork, and exhaust fans, ensuring a safe and efficient ventilation system."
+      }
+    ]
+  },
+  {
+    "label": "HVAC",
+    "type": "dropdown",
+    "slug": "hvac",
+    "title": "Commercial HVAC Services",
+    "description": "Installation, repair, and maintenance of commercial HVAC systems for optimal climate control in restaurants.",
+    "imageUrl": "https://placehold.co/600x400/3357FF/FFFFFF?text=HVAC+Services",
+    "content": "A comfortable environment is crucial for both your customers and staff. We offer comprehensive HVAC services tailored for commercial restaurants, including the installation of high-efficiency systems, prompt repairs for all types of units, and preventative maintenance programs to ensure consistent performance and energy savings. Keep your restaurant's climate perfectly controlled year-round.",
+    "subServices": [
+      {
+        "label": "HVAC Installation",
+        "slug": "installation",
+        "title": "Commercial HVAC Installation",
+        "description": "Professional installation of high-efficiency HVAC systems for commercial spaces.",
+        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=HVAC+Install",
+        "content": "We provide expert installation of commercial HVAC systems, from rooftop units to split systems, ensuring optimal sizing and placement for your restaurant's specific needs. Our installations focus on energy efficiency and reliable performance, providing consistent climate control for your customers and staff."
+      },
+      {
+        "label": "HVAC Repair",
+        "slug": "repair",
+        "title": "Commercial HVAC Repair",
+        "description": "Fast and reliable repair services for all types of commercial HVAC units.",
+        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=HVAC+Repair",
+        "content": "When your HVAC system malfunctions, we provide prompt and efficient repair services. Our certified technicians diagnose issues quickly and perform necessary repairs on compressors, coils, fans, and controls, restoring your system's functionality and comfort levels."
+      },
+      {
+        "label": "HVAC Maintenance",
+        "slug": "maintenance",
+        "title": "Commercial HVAC Maintenance",
+        "description": "Preventative maintenance programs for commercial HVAC systems to ensure longevity and efficiency.",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=HVAC+Maintain",
+        "content": "Regular preventative maintenance extends the life of your HVAC system and prevents costly breakdowns. Our maintenance programs include routine inspections, cleaning of coils and filters, lubrication of moving parts, and performance checks, ensuring your system operates at peak efficiency."
+      }
+    ]
+  },
+  {
+    "label": "Air Balancing",
+    "type": "link",
+    "slug": "air-balancing",
+    "title": "Air Balancing Services",
+    "description": "Professional air balancing services to optimize airflow and temperature distribution in commercial HVAC systems.",
+    "imageUrl": "https://placehold.co/600x400/33FF57/FFFFFF?text=Air+Balancing",
+    "content": "Proper air balancing is crucial for energy efficiency and consistent comfort throughout your commercial space. We meticulously adjust and measure airflow in your HVAC system, ensuring that each zone receives the correct amount of conditioned air. This optimizes system performance, reduces energy waste, and eliminates hot or cold spots, leading to a more comfortable environment for everyone."
+  }
+]
