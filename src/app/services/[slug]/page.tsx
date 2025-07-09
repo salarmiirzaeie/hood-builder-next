@@ -1,8 +1,6 @@
 // app/services/[slug]/page.tsx
-import Image from "next/image";
 import servicesData from "@/data/services.json";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import PageHeader from "@/app/components/ui/PageHeader";
 import ServicesNavBar from "@/app/components/ui/servicesNavBar";
 
