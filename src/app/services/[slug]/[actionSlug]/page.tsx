@@ -21,18 +21,21 @@ export async function generateStaticParams() {
   return paths;
 }
 
-interface DynamicRouteParams {
+interface ServicePageParams {
   slug: string;
 }
 
-// 2. Define the interface for your component's props, making 'params' a Promise
+// Define the interface for the *props* that your component will receive
+// This is what the 'PageProps' constraint is likely looking for.
 interface ServiceDetailPageProps {
-  params: Promise<DynamicRouteParams>; // params is now a Promise
+  // params is a Promise in Next.js 15+ App Router
+  params: Promise<ServicePageParams>;
+  // If you also use searchParams, they are also Promises
+  // searchParams?: Promise<{[key: string]: string | string[] | undefined}>;
 }
 
-// 3. Make your component 'async' and 'await' the params
 export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
-  // Await the params to get the actual slug value
+  // Await the params Promise to get the actual slug
   const { slug } = await params;
 
   // Find the parent service category using the 'slug' parameter
