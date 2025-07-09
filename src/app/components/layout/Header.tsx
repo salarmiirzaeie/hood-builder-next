@@ -27,7 +27,7 @@ const Header = () => {
     { label: "ABOUT US", href: "/about-us" },
     { label: "CLIENTS", href: "/clients" },
     { label: "FAQ", href: "/faq" },
-    { label: "BLOG", href: "/blog" },
+    { label: "BLOG", href: "/blogs" },
     { label: "CONTACT US", href: "/contact-us" },
   ];
 
@@ -77,13 +77,10 @@ const Header = () => {
               <div className="flex space-x-6 lg:space-x-8 py-2">
                 {/* ALL SERVICES (main dropdown) */}
                 <div className="relative group">
-                  <Link
-                    href="/services" // Link to a general services overview page if it exists
-                    className="flex items-center text-gray-700 hover:text-indigo-600 px-2 py-1 text-sm font-medium rounded-md transition duration-300 focus:outline-none"
-                  >
+                  <h3 className="flex items-center text-gray-700 hover:text-indigo-600 px-2 py-1 text-sm font-medium rounded-md transition duration-300 focus:outline-none">
                     ALL SERVICES
                     <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
-                  </Link>
+                  </h3>
                   {/* First-level dropdown content (visible on group-hover) */}
                   <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out transform scale-95 group-hover:scale-100">
                     {servicesData.map((service, index) => (

@@ -2,51 +2,62 @@
   {
     "label": "Walk-in coolers and freezers",
     "type": "link",
-    "slug": "walk-in-coolers-and-freezers",
-    "title": "Walk-in Coolers and Freezers",
-    "description": "Expert installation, repair, and maintenance for all types of commercial walk-in coolers and freezers, ensuring optimal temperature control and food safety.",
-    "imageUrl": "https://placehold.co/600x400/FF5733/FFFFFF?text=Walk-in+Coolers",
-    "content": "Our team specializes in custom walk-in cooler and freezer solutions, from initial design and precise installation to urgent repairs and routine preventative maintenance. We ensure your refrigeration systems are energy-efficient, compliant with health codes, and perfectly suited to your business needs, keeping your perishables fresh and safe."
+    "slug": "introduction-walk-in-coolers-and-freezers",
+    "description": "An Introduction to Walk-in Coolers and Freezers | Denver, Colorado | Fort Collins",
+    "title": "Walk-in coolers and freezers"
   },
   {
     "label": "Food trucks/food trailers design",
     "type": "link",
     "slug": "food-trucks-design-fire-suppression-installation-services",
-    "title": "Food Trucks & Trailers Design",
-    "description": "Full-service design and build for custom food trucks and trailers, including kitchen layout, equipment installation, and fire suppression systems.",
-    "imageUrl": "https://placehold.co/600x400/33FF57/FFFFFF?text=Food+Truck+Design",
-    "content": "From concept to completion, we bring your mobile culinary vision to life. Our services include custom interior design, efficient kitchen layouts, professional equipment installation, and certified fire suppression system integration. We handle all aspects of the build, ensuring your food truck or trailer meets all regulations and is ready to operate safely and efficiently."
+    "description": "Food Trucks Design and Fire Suppression Installation Services | HoodBuilder | Denver, CO | Fort Collins",
+    "title": "Food trucks / food trailers design"
   },
   {
     "label": "Restaurant Services",
     "type": "dropdown",
     "slug": "restaurant-services",
-    "title": "Restaurant Services Overview",
-    "description": "Comprehensive services for restaurant owners, from initial setup to ongoing maintenance and specialized repairs.",
-    "imageUrl": "https://placehold.co/600x400/3357FF/FFFFFF?text=Restaurant+Services",
-    "content": "Our restaurant services cover a broad spectrum of needs, ensuring your establishment runs smoothly and efficiently. We provide expert solutions for various aspects of your operations, from initial design and construction to specialized repairs and preventative maintenance programs. Our goal is to be your trusted partner in maintaining a safe, compliant, and productive restaurant environment.",
+    "title": "Restaurant Services",
+    "description": "Restaurant Remodeling Services for a Restaurant Renovation | Denver, CO | Fort Collins | Boulder",
+
     "subServices": [
       {
-        "label": "Restaurant Repair",
-        "slug": "repair",
-        "title": "Restaurant Repair Services",
-        "description": "Fast and reliable repair services for all restaurant equipment and infrastructure, minimizing downtime.",
+        "label": "Restaurant Remodeling",
+        "slug": "remodeling",
+        "description": "Restaurant Remodeling Services for a Restaurant Renovation | Denver, CO | Fort Collins | Boulder",
         "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=Restaurant+Repair",
-        "content": "When equipment breaks down, your business suffers. Our rapid response team provides expert repair services for commercial ovens, fryers, refrigeration units, plumbing, electrical systems, and more. We diagnose issues quickly and provide lasting solutions to get your kitchen back in full operation with minimal disruption."
+        "content": "When equipment breaks down, your business suffers. Our rapid response team provides expert repair services for commercial ovens, fryers, refrigeration units, plumbing, electrical systems, and more. We diagnose issues quickly and provide lasting solutions to get your kitchen back in full operation with minimal disruption.",
+        "title": "Restaurant Remodeling"
       },
       {
-        "label": "Restaurant Installation",
-        "slug": "installation",
-        "title": "Restaurant Equipment Installation",
-        "description": "Professional installation of all commercial kitchen and dining equipment, ensuring proper setup and functionality.",
+        "label": "Restaurant Equipment",
+        "slug": "equipment",
+        "title": "Commercial Restaurant Equipment in Denver, Colorado",
+        "description": "Commercial Restaurant Equipment Installation & Maintenance | Denver, CO | Fort Collins | Boulder",
         "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Restaurant+Install",
         "content": "Proper installation is key to the longevity and performance of your restaurant equipment. We handle the installation of everything from large cooking ranges and ventilation systems to dishwashers and refrigeration units. Our certified technicians ensure all installations meet manufacturer specifications and local codes, providing a safe and efficient setup."
       },
       {
-        "label": "Restaurant Cleaning",
+        "label": "Commercial Kitchen Design",
+        "slug": "design",
+        "title": "Commercial Kitchen Design & Remodeling",
+        "description": "Get the Design and Remodeling of Your Restaurant Done by Experienced Engineers | Denver, Colorado | Fort Collins",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Restaurant+Cleaning",
+        "content": "Maintaining a clean kitchen is essential for hygiene, safety, and compliance. Our deep cleaning services go beyond daily routines, tackling grease buildup in exhaust systems, cleaning hard-to-reach areas, and sanitizing all surfaces. We help you meet health inspection standards and provide a pristine working environment."
+      },
+      {
+        "label": "Restaurant Construction",
+        "slug": "construction",
+        "title": "Commercial Kitchen & Restaurant Construction",
+        "description": "Restaurant Construction Services You Can Rely | HoodBuilder | Denver, CO | Fort Collins",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Restaurant+Cleaning",
+        "content": "Maintaining a clean kitchen is essential for hygiene, safety, and compliance. Our deep cleaning services go beyond daily routines, tackling grease buildup in exhaust systems, cleaning hard-to-reach areas, and sanitizing all surfaces. We help you meet health inspection standards and provide a pristine working environment."
+      },
+      {
+        "label": "Commercial Kitchen Cleaning",
         "slug": "cleaning",
-        "title": "Restaurant Cleaning Services",
-        "description": "Deep cleaning services for commercial kitchens, including hood systems, exhaust fans, and general kitchen areas.",
+        "title": " Commercial Kitchen Cleaning",
+        "description": "Restaurant Cleaning & Commercial Kitchen Cleaning | Denver, CO | Fort Collins | Boulder",
         "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Restaurant+Cleaning",
         "content": "Maintaining a clean kitchen is essential for hygiene, safety, and compliance. Our deep cleaning services go beyond daily routines, tackling grease buildup in exhaust systems, cleaning hard-to-reach areas, and sanitizing all surfaces. We help you meet health inspection standards and provide a pristine working environment."
       }
@@ -55,70 +66,123 @@
   {
     "label": "Fire Protection",
     "type": "dropdown",
-    "slug": "fire-protection",
-    "title": "Fire Protection Systems",
-    "description": "Installation, inspection, and maintenance of fire suppression systems for commercial kitchens, ensuring safety and compliance.",
-    "imageUrl": "https://placehold.co/600x400/FF5733/FFFFFF?text=Fire+Protection",
-    "content": "Fire safety is paramount in any commercial kitchen. We provide comprehensive fire protection services, including the design and installation of state-of-the-art fire suppression systems, regular inspections to ensure compliance with NFPA standards, and preventative maintenance. Protect your staff, property, and business with our reliable fire safety solutions.",
+    "slug": "fire-suppression-systems",
+    "description": "Fire Protection Systems",
+    "title": "Fire Protection",
+
     "subServices": [
       {
-        "label": "Fire Suppression Installation",
-        "slug": "installation",
-        "title": "Fire Suppression System Installation",
-        "description": "Certified installation of automatic fire suppression systems for commercial kitchens.",
-        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=Fire+Suppress+Install",
-        "content": "Our certified technicians specialize in the precise installation of commercial kitchen fire suppression systems. We ensure that your system is correctly sized, strategically placed, and fully compliant with all local and national fire codes, providing maximum protection against kitchen fires."
+        "label": "Commercial Fire Restoration",
+        "slug": "fire-restoration",
+        "description": "Complete Fire Restoration & Recovery Services for Restaurants in Denver,CO",
+        "title": "Commercial Fire Restoration",
+        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=Fire+Restoration"
       },
       {
-        "label": "Fire Suppression Inspection",
-        "slug": "inspection",
-        "title": "Fire Suppression System Inspection",
-        "description": "Regular inspections of fire suppression systems to ensure proper functionality and compliance.",
-        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Fire+Suppress+Inspect",
-        "content": "Routine inspections are critical for the reliability of your fire suppression system. We conduct thorough checks of all components, including nozzles, detectors, and control panels, to ensure they are in perfect working order. Our detailed reports help you maintain compliance and peace of mind."
+        "label": "Installation",
+        "slug": "installations",
+        "description": "Fire System Installation | Denver, CO | Fort Collins | Boulder",
+        "title": "Fire Suppression Systems > Installations"
       },
       {
-        "label": "Fire Extinguisher Service",
-        "slug": "extinguisher-service",
-        "title": "Fire Extinguisher Services",
-        "description": "Sales, installation, inspection, and recharging of fire extinguishers.",
+        "label": "Repair",
+        "slug": "repair",
+        "title": "Fire Suppression Systems > Repair",
+        "description": "Fire Suppression Systems Repair and Service | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Service",
+        "slug": "service",
+        "description": "Fire System Services | Denver, CO | Fort Collins | Boulder",
+        "title": "Fire Suppression Systems > Service"
+      },
+      {
+        "label": "Buckeye",
+        "slug": "buckeye",
+        "description": "Buckeye Fire Suppression System | Denver, CO | Fort Collins | Boulder",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Extinguisher+Service",
+        "title": "Buckeye Fire Suppression System",
+        "content": "Beyond suppression systems, we offer complete fire extinguisher services. This includes advising on the correct types and placement of extinguishers, professional installation, annual inspections, and recharging services. Ensure your first line of defense against small fires is always ready."
+      },
+      {
+        "label": "Ansul",
+        "slug": "ansul",
+        "title": "Ansul Fire Suppression System",
+        "description": "Ansul Fire Suppression System & Fire System Service | Denver, CO | Fort Collins | Boulder",
         "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Extinguisher+Service",
         "content": "Beyond suppression systems, we offer complete fire extinguisher services. This includes advising on the correct types and placement of extinguishers, professional installation, annual inspections, and recharging services. Ensure your first line of defense against small fires is always ready."
+      },
+      {
+        "label": "Pyrochem",
+        "slug": "pyrochem",
+        "title": "Pyrochem Fire Suppression System",
+        "description": "Pyrochem Fire Suppression System & Fire System Installation | Denver, CO | Fort Collins | Boulder",
+        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Extinguisher+Service",
+        "content": "Beyond suppression systems, we offer complete fire extinguisher services. This includes advising on the correct types and placement of extinguishers, professional installation, annual inspections, and recharging services. Ensure your first line of defense against small fires is always ready."
+      },
+      {
+        "label": "Amerex",
+        "slug": "amerex",
+        "title": "Amerex Fire Suppression System",
+        "description": "Amerex Fire Suppression System & Fire System Service | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Range Guard",
+        "slug": "range-guard",
+        "title": "Range Guard Fire Suppression System",
+        "description": "Range Guard Fire Suppression Systems & Fire System Installation | Denver, CO | Fort Collins | Boulder"
       }
     ]
   },
   {
     "label": "Restaurant Build Up & General Constructing",
     "type": "dropdown",
-    "slug": "restaurant-build-up-general-constructing",
-    "title": "Restaurant Construction & Build-Outs",
-    "description": "Full-service general contracting for new restaurant construction, renovations, and build-outs, from concept to grand opening.",
-    "imageUrl": "https://placehold.co/600x400/33FF57/FFFFFF?text=Restaurant+Construction",
-    "content": "Building or renovating a restaurant requires specialized expertise. We act as your general contractor, managing all phases of construction, including architectural planning, permitting, demolition, framing, electrical, plumbing, and finishing. Our goal is to deliver your project on time and within budget, creating a space that is both beautiful and highly functional.",
+    "slug": "general-contracting",
+    "description": "Restaurant Construction & Build-Outs",
+    "title": "Restaurant Build Up & General Constructing",
+
     "subServices": [
       {
-        "label": "New Restaurant Construction",
-        "slug": "new-construction",
-        "title": "New Restaurant Construction",
-        "description": "Ground-up construction services for new restaurant establishments.",
-        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=New+Construct",
-        "content": "From empty lot to grand opening, we manage the entire new construction process for your restaurant. Our services include site preparation, foundation work, structural framing, exterior finishing, and interior build-out, all while coordinating with architects and designers to bring your vision to life."
+        "label": "Architectural Drawing",
+        "slug": "architectural-drawing",
+        "title": "Architectural Drawing",
+        "description": "Architectural Drawing | Restaurant General Contractors | Denver, CO | Fort Collins | Boulder"
       },
       {
-        "label": "Restaurant Renovation",
-        "slug": "renovation",
-        "title": "Restaurant Renovation & Remodeling",
-        "description": "Comprehensive renovation and remodeling services to update and optimize existing restaurant spaces.",
-        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Restaurant+Renovate",
-        "content": "Give your existing restaurant a fresh look and improved functionality with our renovation services. Whether it's a minor refresh or a major overhaul, we handle everything from kitchen upgrades and dining area redesigns to facade improvements and structural modifications, ensuring minimal disruption to your operations."
+        "label": "Electrical Drawing",
+        "slug": "electrical-drawing",
+        "title": "Electrical Drawing",
+        "description": "Electrical Drawing | Restaurant General Contractors | Denver, CO | Fort Collins | Boulder"
       },
       {
-        "label": "Tenant Improvement",
-        "slug": "tenant-improvement",
-        "title": "Restaurant Tenant Improvement",
-        "description": "Custom build-out services for leased commercial spaces to meet restaurant specifications.",
-        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Tenant+Improvement",
-        "content": "We specialize in transforming raw commercial spaces into fully operational restaurants. Our tenant improvement services include custom kitchen build-outs, dining area construction, plumbing and electrical system installation, and compliance with all health and safety regulations, tailored to your specific lease requirements."
+        "label": "Fire Suppression System Drawing",
+        "slug": "fire-suppression-system-drawing",
+        "title": "Fire Suppression System Drawing",
+        "description": "Fire Suppression System Drawing | Restaurant General Contractors | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Mechanical Drawing",
+        "slug": "mechanical-drawing",
+        "title": "Mechanical Drawing",
+        "description": "Mechanical Drawing | Restaurant General Contractors | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Plumbing Services",
+        "slug": "plumbing-services",
+        "title": "Plumbing Services",
+        "description": "Plumbing Services | Restaurant General Contractors | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Structural Engineering",
+        "slug": "structural-engineering",
+        "title": "Structural Engineering",
+        "description": "Structural Engineering | Restaurant General Contractors | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Grease Trap",
+        "title": "Grease Trap",
+        "slug": "grease-trap",
+        "description": "Grease Trap Service | HoodBuilder | Denver, CO | Fort Collins | Boulder"
       }
     ]
   },
@@ -126,34 +190,38 @@
     "label": "Hoods",
     "type": "dropdown",
     "slug": "hoods",
-    "title": "Commercial Kitchen Hood Systems",
-    "description": "Installation, repair, and cleaning services for all types of commercial kitchen exhaust hoods.",
-    "imageUrl": "https://placehold.co/600x400/3357FF/FFFFFF?text=Hood+Systems",
-    "content": "A properly functioning hood system is essential for air quality and safety in your commercial kitchen. We provide end-to-end services for exhaust hoods, including expert installation of various types, rapid repair of fan motors and ductwork, and thorough cleaning to prevent grease buildup and fire hazards. Ensure your kitchen ventilation meets all regulatory standards.",
+    "description": "Commercial Kitchen Hood Systems",
+
     "subServices": [
       {
-        "label": "Hood Installation",
-        "slug": "installation",
-        "title": "Commercial Hood Installation",
-        "description": "Professional installation of commercial kitchen exhaust hoods, ensuring compliance and efficiency.",
-        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=Hood+Install",
-        "content": "We provide expert installation of all types of commercial kitchen exhaust hoods, including canopy, wall-mounted, and island hoods. Our installations ensure proper sizing, ducting, and fan integration to effectively remove smoke, steam, and grease, creating a safer and cleaner working environment."
-      },
-      {
-        "label": "Hood Repair",
-        "slug": "repair",
-        "title": "Commercial Hood Repair",
-        "description": "Fast and reliable repair services for commercial kitchen hoods and exhaust systems.",
-        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=Hood+Repair",
-        "content": "Malfunctioning hoods can compromise kitchen safety and air quality. Our technicians quickly diagnose and repair issues with hood fans, motors, ductwork, and electrical components. We ensure your exhaust system is fully operational, restoring proper ventilation and compliance."
-      },
-      {
-        "label": "Hood Cleaning",
+        "label": "Cleaning",
         "slug": "cleaning",
-        "title": "Commercial Hood Cleaning",
-        "description": "Thorough cleaning services for commercial kitchen exhaust hoods and ductwork to prevent grease fires.",
-        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=Hood+Cleaning",
-        "content": "Regular deep cleaning of your commercial kitchen hood and exhaust system is vital for fire prevention and health code compliance. We remove all accumulated grease and debris from hoods, filters, ductwork, and exhaust fans, ensuring a safe and efficient ventilation system."
+        "title": "Cleaning",
+        "description": "Restaurant kitchen & Commercial Hood Cleaning | HoodBuilder | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Fans",
+        "slug": "fans",
+        "title": "Fans",
+        "description": "The Best Commercial Kitchen Exhaust Fan Installation, Repair, Cleaning Services | HoodBuilder | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Installation",
+        "slug": "installation",
+        "title": "Installation",
+        "description": "Commercial Range Hood Installation | HoodBuilder | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Make-up Air",
+        "slug": "make-up-air",
+        "title": "Make-up Air",
+        "description": "Hood Make Up Air | HoodBuilder | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Shepherd Disposable Grease Filters",
+        "slug": "shepherd-disposable-grease-filters",
+        "title": "Shepherd Disposable Grease Filters",
+        "description": "Grease Filters - Commercial Grease Cleaner & Clean Hood Filter | HoodBuilder | Denver, CO | Fort Collins | Boulder"
       }
     ]
   },
@@ -161,34 +229,32 @@
     "label": "HVAC",
     "type": "dropdown",
     "slug": "hvac",
-    "title": "Commercial HVAC Services",
-    "description": "Installation, repair, and maintenance of commercial HVAC systems for optimal climate control in restaurants.",
-    "imageUrl": "https://placehold.co/600x400/3357FF/FFFFFF?text=HVAC+Services",
-    "content": "A comfortable environment is crucial for both your customers and staff. We offer comprehensive HVAC services tailored for commercial restaurants, including the installation of high-efficiency systems, prompt repairs for all types of units, and preventative maintenance programs to ensure consistent performance and energy savings. Keep your restaurant's climate perfectly controlled year-round.",
+    "description": "Commercial HVAC Services",
+
     "subServices": [
       {
-        "label": "HVAC Installation",
-        "slug": "installation",
-        "title": "Commercial HVAC Installation",
-        "description": "Professional installation of high-efficiency HVAC systems for commercial spaces.",
-        "imageUrl": "https://placehold.co/600x400/FF33A1/FFFFFF?text=HVAC+Install",
-        "content": "We provide expert installation of commercial HVAC systems, from rooftop units to split systems, ensuring optimal sizing and placement for your restaurant's specific needs. Our installations focus on energy efficiency and reliable performance, providing consistent climate control for your customers and staff."
+        "label": "Air Conditioning",
+        "slug": "air-conditioning",
+        "title": "Air Conditioning",
+        "description": "Heating and Air conditioning Service, Installation and Repair | HoodBuilder | Denver, CO | Fort Collins | Boulder"
       },
       {
-        "label": "HVAC Repair",
-        "slug": "repair",
-        "title": "Commercial HVAC Repair",
-        "description": "Fast and reliable repair services for all types of commercial HVAC units.",
-        "imageUrl": "https://placehold.co/600x400/A1FF33/FFFFFF?text=HVAC+Repair",
-        "content": "When your HVAC system malfunctions, we provide prompt and efficient repair services. Our certified technicians diagnose issues quickly and perform necessary repairs on compressors, coils, fans, and controls, restoring your system's functionality and comfort levels."
+        "label": "Make-up Air",
+        "slug": "make-up-air",
+        "title": "Make-up Air",
+        "description": "Make-Up Air Systems Services | HoodBuilder | Denver, CO | Fort Collins | Boulder"
       },
       {
-        "label": "HVAC Maintenance",
-        "slug": "maintenance",
-        "title": "Commercial HVAC Maintenance",
-        "description": "Preventative maintenance programs for commercial HVAC systems to ensure longevity and efficiency.",
-        "imageUrl": "https://placehold.co/600x400/33A1FF/FFFFFF?text=HVAC+Maintain",
-        "content": "Regular preventative maintenance extends the life of your HVAC system and prevents costly breakdowns. Our maintenance programs include routine inspections, cleaning of coils and filters, lubrication of moving parts, and performance checks, ensuring your system operates at peak efficiency."
+        "label": "Heating",
+        "slug": "heating",
+        "title": "Heating",
+        "description": "Heating & Air Conditioning | HoodBuilder | Denver, CO | Fort Collins | Boulder"
+      },
+      {
+        "label": "Ventilation",
+        "slug": "ventilation",
+        "title": "Ventilation",
+        "description": "HVAC ventilation systems installation, repair, cleaning, service and balancing | HoodBuilder | Denver, CO | Fort Collins | Boulder"
       }
     ]
   },
@@ -196,9 +262,7 @@
     "label": "Air Balancing",
     "type": "link",
     "slug": "air-balancing",
-    "title": "Air Balancing Services",
-    "description": "Professional air balancing services to optimize airflow and temperature distribution in commercial HVAC systems.",
-    "imageUrl": "https://placehold.co/600x400/33FF57/FFFFFF?text=Air+Balancing",
-    "content": "Proper air balancing is crucial for energy efficiency and consistent comfort throughout your commercial space. We meticulously adjust and measure airflow in your HVAC system, ensuring that each zone receives the correct amount of conditioned air. This optimizes system performance, reduces energy waste, and eliminates hot or cold spots, leading to a more comfortable environment for everyone."
+    "title": "Air Balancing",
+    "description": "Certified HVAC Air Balancing | HoodBuilder | Denver, CO | Fort Collins | Boulder"
   }
 ]
