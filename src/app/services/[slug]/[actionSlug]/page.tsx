@@ -23,18 +23,17 @@ export async function generateStaticParams() {
 
 interface DynamicRouteParams {
   slug: string;
-  actionSlug: string;
 }
 
 // 2. Define the interface for your component's props, making 'params' a Promise
-interface NestedServiceDetailPageProps {
+interface ServiceDetailPageProps {
   params: Promise<DynamicRouteParams>; // params is now a Promise
 }
 
 // 3. Make your component 'async' and 'await' the params
-export default async function NestedServiceDetailPage({ params }: NestedServiceDetailPageProps) {
-  // Await the params to get the actual slug and actionSlug values
-  const { slug, actionSlug } = await params;
+export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
+  // Await the params to get the actual slug value
+  const { slug } = await params;
 
   // Find the parent service category using the 'slug' parameter
   const parentService = servicesData.find((s) => s.slug === slug && s.type === "dropdown"); // Changed 'categorySlug' to 'slug'
@@ -44,11 +43,6 @@ export default async function NestedServiceDetailPage({ params }: NestedServiceD
   }
 
   // Find the specific sub-service
-  const subService = parentService.subServices.find((ss) => ss.slug === actionSlug);
-
-  if (!subService) {
-    notFound(); // Sub-service not found
-  }
 
   return (
     <div>
