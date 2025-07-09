@@ -21,15 +21,20 @@ export async function generateStaticParams() {
   return paths;
 }
 
-interface NestedServiceDetailPageProps {
-  params: {
-    slug: string;
-    actionSlug: string;
-  };
+interface DynamicRouteParams {
+  slug: string;
+  actionSlug: string;
 }
 
-export default function NestedServiceDetailPage({ params }: NestedServiceDetailPageProps) {
-  const { slug, actionSlug } = params;
+// 2. Define the interface for your component's props, making 'params' a Promise
+interface NestedServiceDetailPageProps {
+  params: Promise<DynamicRouteParams>; // params is now a Promise
+}
+
+// 3. Make your component 'async' and 'await' the params
+export default async function NestedServiceDetailPage({ params }: NestedServiceDetailPageProps) {
+  // Await the params to get the actual slug and actionSlug values
+  const { slug, actionSlug } = await params;
 
   // Find the parent service category using the 'slug' parameter
   const parentService = servicesData.find((s) => s.slug === slug && s.type === "dropdown"); // Changed 'categorySlug' to 'slug'
@@ -52,7 +57,7 @@ export default function NestedServiceDetailPage({ params }: NestedServiceDetailP
         imageAlt="FAQ"
         imageUrl="/images/img-bg-featured.webp"
         title="Restaurant Remodeling Services for a Restaurant Renovation | Denver, CO | Fort Collins | Boulder"
-        breadcrumbs={[{ label: "Services", href: "/services" }, { label: params.slug }]}
+        breadcrumbs={[{ label: "Services", href: "/services" }, { label: slug }]}
       />
       <div className="bg-white font-sans p-4 flex justify-center">
         <div className="w-full max-w-7xl mx-auto py-8 md:py-16 px-4"></div>
