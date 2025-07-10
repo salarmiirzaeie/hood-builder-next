@@ -1,14 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { loadWpPostsAllData } from "@/lib/data";
 import Image from "next/image";
 import { WPPost } from "@/types";
-interface BlogPost {
-  ID: string;
-  post_title: string;
-  post_name: string;
-  post_content: string;
-}
 
 export default async function BlogCard({ post }: { post: WPPost }) {
   return (

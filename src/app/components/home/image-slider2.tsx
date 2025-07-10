@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React from "react";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css"; // Import the carousel's CSS for core functionality
@@ -115,38 +115,6 @@ const CustomArrow: React.FC<ArrowProps> = ({ onClick, direction, ariaLabel }) =>
 };
 
 // --- Custom Dot Component (Optimized and Accessible) ---
-interface CustomDotProps {
-  onClick: () => void;
-  active: boolean;
-  index: number;
-  carouselState: any; // react-multi-carousel passes carouselState
-}
-
-const CustomDot: React.FC<CustomDotProps> = ({ onClick, active, index, carouselState }) => {
-  // Determine the "real" current index for the dots
-  // react-multi-carousel internal state gives `currentSlide`, which is 1-indexed for the actual visible slide
-  // We need to map it back to 0-indexed for `originalItems`
-  const { currentSlide, slidesToShow } = carouselState;
-  // The carousel internally adds cloned slides for infinite scroll.
-  // The `currentSlide` reflects the position including these clones.
-  // We need to find which `originalItems` index corresponds to the *start* of the currently visible slides.
-  // This logic might need slight adjustment based on exact `react-multi-carousel` version or specific behavior.
-  // A safer bet might be to directly use `active` prop for the dot's state.
-
-  const isCurrentActive = active; // `active` prop is already accurate for the current dot
-
-  return (
-    <button
-      className={`w-3 h-3 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ${
-        isCurrentActive ? "bg-gray-800" : "bg-gray-400"
-      }`}
-      onClick={() => onClick()}
-      aria-label={`Go to slide ${index + 1}`}
-      role="tab" // ARIA role for a tab, as dots act like tabs
-      aria-selected={isCurrentActive} // Indicate selected state
-    />
-  );
-};
 
 // --- Main ImageSlider Component ---
 
@@ -154,7 +122,6 @@ const ImageSlider: React.FC = () => {
   // Preload LCP image if it's the first image in the carousel
   // This helps with "Largest Contentful Paint image was lazily loaded" and LCP timing.
   const lcpImageUrl = originalItems[0]?.image; // Assuming the first item's image is the most likely LCP.
-  const lcpImageAlt = originalItems[0]?.title;
 
   return (
     <>
