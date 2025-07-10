@@ -80,8 +80,7 @@ const BlogPostCard: React.FC<{ post: BlogPost }> = ({ post }) => {
         layout="responsive" // Make image responsive to parent container
         width={400} // Example width (adjust based on your actual image aspect ratio)
         height={250} // Example height
-        objectFit="cover"
-        className={`transition-all duration-500 ease-in-out ${isHovered ? "" : "grayscale"}`}
+        className={`transition-all duration-500 object-cover ease-in-out ${isHovered ? "" : "grayscale"}`}
         // Fallback for image loading errors can be handled by Next.js Image component
       />
       {/* 
