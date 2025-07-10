@@ -18,7 +18,6 @@ export const cleanShortcodes = (text: string): string => {
   return text.replace(/\[\/?\w+(?:\s+[^\]]*)?\]/g, "");
 };
 
-// New function to generate all possible sub-service paths for `generateStaticParams`
 export async function getAllSubServicePaths(): Promise<
   { slug: string; actionSlug: string; title: string; description: string }[]
 > {

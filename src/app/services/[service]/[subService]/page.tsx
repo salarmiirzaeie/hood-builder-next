@@ -3,11 +3,35 @@ import ServicesNavBar from "@/app/components/ui/servicesNavBar";
 import PageHeader from "@/app/components/ui/PageHeader";
 import HtmlRenderer from "@/app/components/ui/HtmlRenderer";
 import { loadWpPostsData, cleanShortcodes, getAllSubServicePaths } from "@/lib/data";
+import { Metadata } from "next";
 
-// ✅ Don't manually type `params`; Next.js will infer it
-export default async function NestedServiceDetailPage({ params }: { params: { service: string; subService: string } }) {
-  const { service: slug, subService: actionSlug } = params;
+type Props = {
+  params: Promise<{ service: string; subService: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const { service: slug, subService: actionSlug } = await params;
+
+  const subServiceData = await getAllSubServicePaths();
+
+  const parentService = subServiceData.find((s) => s.actionSlug === actionSlug && s.slug === slug);
+  return {
+    title: parentService?.title || "",
+    description: parentService?.description || "",
+  };
+}
+export async function generateStaticParams() {
+  const subServiceData = await getAllSubServicePaths();
+
+  return subServiceData.map((service) => ({
+    service: service.slug,
+    subService: service.actionSlug,
+  }));
+}
+export default async function NestedServiceDetailPage({ params }: Props) {
+  const { service: slug, subService: actionSlug } = await params;
   const subServiceData = await getAllSubServicePaths();
   const wpPostsData = await loadWpPostsData();
 

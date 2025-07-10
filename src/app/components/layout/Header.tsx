@@ -27,7 +27,7 @@ const Header = () => {
     { label: "ABOUT US", href: "/about-us" },
     { label: "CLIENTS", href: "/clients" },
     { label: "FAQ", href: "/faq" },
-    { label: "BLOG", href: "/blog" },
+    // { label: "BLOG", href: "/blog" },
     { label: "CONTACT US", href: "/contact-us" },
   ];
 
@@ -75,6 +75,14 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex flex-1">
               <div className="flex space-x-6 lg:space-x-8 py-2">
+                {/* Home Link (moved to the beginning) */}
+                <Link
+                  href="/"
+                  className="text-gray-700 hover:text-indigo-600 px-2 py-1 text-sm font-medium rounded-md transition duration-300"
+                >
+                  Home
+                </Link>
+
                 {/* ALL SERVICES (main dropdown) */}
                 <div className="relative group">
                   <h3 className="flex items-center text-gray-700 hover:text-indigo-600 px-2 py-1 text-sm font-medium rounded-md transition duration-300 focus:outline-none">
@@ -156,6 +164,18 @@ const Header = () => {
         id="mobile-menu"
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          {/* Home Link for Mobile (moved to the beginning) */}
+          <Link
+            href="/"
+            className="w-full text-left block text-gray-700 hover:bg-gray-100 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-300"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setOpenMobileSubDropdown(null); // Close any open sub-dropdowns
+            }}
+          >
+            Home
+          </Link>
+
           {/* ALL SERVICES (main dropdown for mobile) */}
           <div className="relative">
             <button
