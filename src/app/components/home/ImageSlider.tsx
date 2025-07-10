@@ -154,17 +154,23 @@ const ImageSlider: React.FC = () => {
         style={{ scrollBehavior: isScrolling ? "smooth" : "auto" }} // Control scroll behavior based on state
       >
         {loopedItems.map((item, i) => {
+          // Determine if this item is in the initial view or "close" to it
+          // This allows for 'priority' on initial visible items and lazy loading for others
+          const isPriority = i >= DUPLICATION_COUNT && i < DUPLICATION_COUNT + VISIBLE_ITEMS_DESKTOP;
+          // Calculate an estimated index for lazy loading.
+          // Load items that are within +/- VISIBLE_ITEMS_DESKTOP from the current real view.
           const currentRealIndex = Math.floor((carouselRef.current?.scrollLeft ?? 0) / getItemWidth());
           const isNearView =
             i >= currentRealIndex - VISIBLE_ITEMS_DESKTOP &&
             i <= currentRealIndex + VISIBLE_ITEMS_DESKTOP + (VISIBLE_ITEMS_DESKTOP - 1);
 
-          // Inside your loopedItems.map
           return (
             <div
+              // Assign itemRef to the first *real* item, which is after DUPLICATION_COUNT
               ref={i === DUPLICATION_COUNT ? itemRef : null}
-              key={`${item.id}-${i}`}
+              key={`${item.id}-${i}`} // Unique key using id and index for looped items
               className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 snap-start relative group"
+              // Dynamically set minWidth based on VISIBLE_ITEMS_DESKTOP
               style={{ minWidth: `calc(100% / ${VISIBLE_ITEMS_DESKTOP})` }}
               role="group"
               aria-roledescription="slide"
@@ -177,17 +183,38 @@ const ImageSlider: React.FC = () => {
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  // Optimize sizes for better image loading. Add more breakpoints if needed.
+                  sizes="(max-width: 768px) 100vw,
+                         (max-width: 1024px) 50vw,
+                         (max-width: 1280px) 33vw,
+                         25vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105 z-10"
-                  // Ensure priority is set for the image that will be the LCP
-                  // This is typically the first "real" item after the duplicated ones
-                  priority={i === DUPLICATION_COUNT} // Set priority ONLY for the very first "real" item
-                  // Next.js Image component handles `loading="eager"` and `fetchpriority="high"` automatically when `priority` is true.
-                  // You generally don't need to explicitly set `loading` or `fetchpriority` if `priority` is true.
-                  // For other images, let Next.js optimize default loading or use your isNearView logic for eager loading.
-                  loading={i === DUPLICATION_COUNT || isNearView ? "eager" : "lazy"}
+                  // Set priority for the initial visible items. Lazy load others.
+                  priority={isPriority}
+                  loading={isNearView || isPriority ? "eager" : "lazy"} // Eager load if priority or near view
+                  // Optional: Add `fetchpriority="high"` for the most critical image
+                  // fetchpriority={isPriority && i === DUPLICATION_COUNT ? "high" : "auto"}
                 />
-                {/* ... rest of your code */}
+                {item.icon && (
+                  <Image
+                    src={item.icon}
+                    alt={`${item.title} icon`} // More descriptive alt text
+                    width={50}
+                    height={50}
+                    className="absolute z-20 top-6 left-6 opacity-75 group-hover:opacity-100 transition-opacity duration-300" // Position icon directly
+                    loading="lazy" // Icons can typically be lazy-loaded
+                  />
+                )}
+                <div className="absolute z-20 inset-0 bg-[rgba(0,0,0,.5)] group-hover:bg-[rgba(169,167,144,.7)] transition-colors duration-300 flex flex-col justify-end items-start p-6 text-white">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 uppercase leading-tight group-hover:text-amber-300 transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  {item.hasButton && (
+                    <button className="mt-4 px-6 py-2 border border-white text-white text-sm uppercase font-semibold rounded-full hover:bg-white hover:text-gray-800 transition-colors duration-300">
+                      {item.buttonText}
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           );
