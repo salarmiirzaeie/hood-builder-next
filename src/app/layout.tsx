@@ -20,10 +20,6 @@ export const metadata: Metadata = {
     "Restaurant Design, Repair and Construction | One-Step-Shop | Hood Builder | Boulder | Fort Collins | Denver,CO",
   description:
     "Hood Builder is your One-Step-Shop in Colorado, offering hood and HVAC installation, repair, cleaning, and maintenance services for restaurants. They also provide restaurant design and construction services. | Boulder | Fort Collins | Denver,CO",
-  robots: {
-    index: false,
-    follow: false,
-  },
 };
 
 export default function RootLayout({

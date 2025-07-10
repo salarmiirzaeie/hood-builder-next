@@ -74,11 +74,8 @@ const ImageSlider: React.FC = () => {
 
   // Calculate the initial scroll position to start at the "real" first item
   const initialScrollOffset = useMemo(() => {
-    if (itemRef.current) {
-      return DUPLICATION_COUNT * itemRef.current.offsetWidth;
-    }
-    return 0;
-  }, [itemRef.current?.offsetWidth]); // Recalculate if item width changes
+    return DUPLICATION_COUNT * (itemRef.current?.offsetWidth ?? 0);
+  }, []);
 
   // Use a state to control if the carousel is initialized (i.e., initial scroll done)
   const [isInitialized, setIsInitialized] = useState(false);
@@ -137,7 +134,7 @@ const ImageSlider: React.FC = () => {
       // If scrolled into the appended section, jump to the beginning of the original content
       carouselRef.current.scrollLeft = scrollLeft - originalContentWidth;
     }
-  }, [isScrolling, getItemWidth, loopedItems.length]); // Add loopedItems.length for full dependency completeness, though static
+  }, [isScrolling, getItemWidth]); // Add loopedItems.length for full dependency completeness, though static
 
   // Effect for scroll event listener
   useEffect(() => {

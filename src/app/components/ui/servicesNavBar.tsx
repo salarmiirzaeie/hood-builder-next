@@ -9,22 +9,29 @@ import {
   Truck,
   LucideIcon, // Import LucideIcon type
 } from "lucide-react"; // Make sure you have lucide-react installed: npm install lucide-react
+import Link from "next/link";
 
 // Define the type for each service item
 interface ServiceItem {
   id: string;
   name: string;
   icon: LucideIcon; // Use the LucideIcon type for the icon component
+  link: string;
 }
 
 // Array of service data
 const services: ServiceItem[] = [
-  { id: "restaurant-services", name: "RESTAURANT SERVICES", icon: Utensils },
-  { id: "fire-protection", name: "FIRE PROTECTION", icon: FireExtinguisher },
-  { id: "general-contracting", name: "GENERAL CONTRACTING", icon: Hammer },
-  { id: "hoods-mua-exhaust-fans", name: "HOODS, MUA, EXHAUST FANS", icon: Fan },
-  { id: "hvac", name: "HVAC", icon: AirVent },
-  { id: "food-truck-food-trailer", name: "FOOD TRUCK / FOOD TRAILER", icon: Truck },
+  { id: "restaurant-services", name: "RESTAURANT SERVICES", icon: Utensils, link: "/services/restaurant-services" },
+  {
+    id: "fire-protection",
+    name: "FIRE PROTECTION",
+    icon: FireExtinguisher,
+    link: "/services/fire-suppression-systems",
+  },
+  { id: "general-contracting", name: "GENERAL CONTRACTING", icon: Hammer, link: "/services/general-contracting" },
+  { id: "hoods-mua-exhaust-fans", name: "HOODS, MUA, EXHAUST FANS", icon: Fan, link: "/services/hoods" },
+  { id: "hvac", name: "HVAC", icon: AirVent, link: "/services/hvac" },
+  { id: "food-truck-food-trailer", name: "FOOD TRUCK / FOOD TRAILER", icon: Truck, link: "/" },
 ];
 
 const ServicesNavBar: React.FC = () => {
@@ -43,17 +50,18 @@ const ServicesNavBar: React.FC = () => {
         */}
       <div className="flex flex-wrap justify-center gap-4">
         {services.map((service) => (
-          <div
+          <Link
+            href={service.link}
             key={service.id}
             className="
-                flex flex-row gap-3 items-center justify-center text-center
-                p-2 sm:p-6
-                bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300
-                flex-1
-               
-                cursor-pointer
-                border border-gray-200
-              "
+            flex flex-row gap-3 items-center justify-center text-center
+            p-2 sm:p-6
+            bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300
+            flex-1
+           
+            cursor-pointer
+            border border-gray-200
+          "
           >
             {/* Icon */}
             <div className="mb-2 text-gray-500">
@@ -61,7 +69,7 @@ const ServicesNavBar: React.FC = () => {
             </div>
             {/* Text */}
             <p className="text-sm sm:text-base font-medium text-gray-700 uppercase leading-tight">{service.name}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

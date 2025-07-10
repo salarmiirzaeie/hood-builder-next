@@ -15,7 +15,7 @@ const Breadcrumb: React.FC = () => {
             <Link href={"/"} className="hover:underline">
               Hood Builder
             </Link>
-            <span className="mx-1">&gt;</span>{" "}
+            <span className="mx-1">&gt;</span>
             <span className="font-semibold">{title[0].toUpperCase() + title.slice(1)}</span>
           </div>
           <h1 className="text-5xl text-center font-bold text-primary mb-4">
