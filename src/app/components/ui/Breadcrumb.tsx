@@ -2,8 +2,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-
-const Breadcrumb: React.FC = () => {
+interface Props {
+  name?: string;
+}
+const Breadcrumb: React.FC<Props> = ({ name }) => {
   const path = usePathname();
   const title = path.split("/")[1];
   return (
@@ -17,6 +19,14 @@ const Breadcrumb: React.FC = () => {
             </Link>
             <span className="mx-1">&gt;</span>
             <span className="font-semibold">{title[0].toUpperCase() + title.slice(1)}</span>
+
+            {name && (
+              <>
+                <span className="mx-1">&gt;</span>
+
+                <span className="font-semibold">{name[0].toUpperCase() + name.slice(1)}</span>
+              </>
+            )}
           </div>
           <h1 className="text-5xl text-center font-bold text-primary mb-4">
             {title[0].toUpperCase() + title.slice(1)}

@@ -1,7 +1,8 @@
-"use client";
 import Link from "next/link";
 import React from "react";
-
+import { loadWpPostsAllData } from "@/lib/data";
+import Image from "next/image";
+import { WPPost } from "@/types";
 interface BlogPost {
   ID: string;
   post_title: string;
@@ -9,17 +10,17 @@ interface BlogPost {
   post_content: string;
 }
 
-const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+export default async function BlogCard({ post }: { post: WPPost }) {
   return (
     <Link href={`/blog/${post.post_name}`}>
       <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105">
-        {/* <Image
-          src={imageUrl || "https://www.hoodbuilder.com/wp-content/uploads/2025/06/loading-placeholder.webp"} // Show a loading placeholder or default image while imageUrl is being set
-          alt={post.post_title}
+        <Image
+          src={post.image || "/wp-content/uploads/2025/06/ChatGPT-Image-Jun-4-2025-04_42_27-PM-1.webp"} // Show a loading placeholder or default image while imageUrl is being set
+          alt={post.post_name || ""}
           className="w-full h-48 object-cover"
           width={400}
           height={250}
-        /> */}
+        />
         <div className="p-6">
           {/* <p className="text-sm text-gray-500 mb-2">{post.category}</p> */}
           <h2 className="text-lg font-semibold text-gray-800 mb-3">{post.post_title}</h2>
@@ -33,6 +34,4 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
       </div>
     </Link>
   );
-};
-
-export default BlogCard;
+}

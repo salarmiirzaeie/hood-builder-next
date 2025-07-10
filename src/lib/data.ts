@@ -13,6 +13,16 @@ export async function loadWpPostsData(): Promise<WPPost[]> {
   const jsonData = await fs.readFile(filePath, "utf8");
   return JSON.parse(jsonData) as WPPost[];
 }
+export async function loadWpPostsAllData(): Promise<WPPost[]> {
+  const filePath = path.join(process.cwd(), "src/data", "wp_posts.json");
+  const jsonData = await fs.readFile(filePath, "utf8");
+  return JSON.parse(jsonData) as WPPost[];
+}
+export async function loadWpBlogs(): Promise<WPPost[]> {
+  const filePath = path.join(process.cwd(), "src/data", "parent.json");
+  const jsonData = await fs.readFile(filePath, "utf8");
+  return JSON.parse(jsonData) as WPPost[];
+}
 
 export const cleanShortcodes = (text: string): string => {
   return text.replace(/\[\/?\w+(?:\s+[^\]]*)?\]/g, "");

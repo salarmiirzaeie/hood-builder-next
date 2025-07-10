@@ -22,6 +22,7 @@ export interface WPPost {
   post_mime_type: string;
   comment_count: string;
   filter: string;
+  image?: string;
   // Add other properties from wp_posts(1).json if any
 }
 // (Keep existing BlogPost and WPPost interfaces from previous example)
