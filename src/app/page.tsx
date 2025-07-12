@@ -4,10 +4,10 @@ import Clients from "./components/home/Clients";
 import Description from "./components/home/Discription";
 import ServicesBanner from "./components/home/services-banner";
 import BlogPostsSection from "./components/home/Blogs";
-import ImageSlider from "./components/home/image-slider2";
 import FireSuppressionSection from "./components/home/FireSuppressionSection";
 import RestaurantInfoSection from "./components/home/RestaurantInfoSection";
 import AboutBanner from "./components/home/about-banner";
+import ImageSlider from "./components/home/ImageSlider";
 
 export default function Home() {
   const logos = [
@@ -30,7 +30,6 @@ export default function Home() {
       <ServicesBanner />
       <RestaurantInfoSection />
       <AboutBanner />
-
       <FireSuppressionSection />
       {/* <FreeQuoteSection /> */}
       <BlogPostsSection />
